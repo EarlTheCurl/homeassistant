@@ -1,0 +1,1 @@
+HASSIO running on RPi3
