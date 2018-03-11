@@ -1,0 +1,162 @@
+binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor:
+  platform: zwave
+  unique_id: 2-72057594076463104
+sensor.fibaro_system_fgsd002_smoke_sensor_temperatur:
+  platform: zwave
+  unique_id: 2-72057594076479506
+sensor.fibaro_system_fgsd002_smoke_sensor_alarm_type:
+  platform: zwave
+  unique_id: 2-72057594077528065
+sensor.fibaro_system_fgsd002_smoke_sensor_alarm_level:
+  platform: zwave
+  unique_id: 2-72057594077528081
+sensor.fibaro_system_fgsd002_smoke_sensor_sourcenodeid:
+  platform: zwave
+  unique_id: 2-72057594077528097
+sensor.fibaro_system_fgsd002_smoke_sensor_smoke:
+  platform: zwave
+  unique_id: 2-72057594077528129
+sensor.fibaro_system_fgsd002_smoke_sensor_heat:
+  platform: zwave
+  unique_id: 2-72057594077528177
+sensor.fibaro_system_fgsd002_smoke_sensor_burglar:
+  platform: zwave
+  unique_id: 2-72057594077528225
+sensor.fibaro_system_fgsd002_smoke_sensor_power_management:
+  platform: zwave
+  unique_id: 2-72057594077528241
+sensor.fibaro_system_fgsd002_smoke_sensor_system:
+  platform: zwave
+  unique_id: 2-72057594077528257
+sensor.fibaro_system_fgsd002_smoke_sensor_general:
+  platform: zwave
+  unique_id: 2-72057594078232577
+sensor.fibaro_system_fgsd002_smoke_sensor_smoke_2:
+  platform: zwave
+  unique_id: 2-72057594078232593
+sensor.fibaro_system_fgsd002_smoke_sensor_heat_2:
+  platform: zwave
+  unique_id: 2-72057594078232641
+media_player.apple_tv:
+  platform: apple_tv
+  unique_id: 84b4812195edd00eade601ea1bcd88014093567b46b964d901a9ae31220ff9ca
+remote.apple_tv:
+  platform: apple_tv
+  unique_id: 84b4812195edd00eade601ea1bcd88014093567b46b964d901a9ae31220ff9ca
+media_player.kitchen:
+  platform: sonos
+  unique_id: RINCON_7828CA15F95601400
+media_player.living_room:
+  platform: sonos
+  unique_id: RINCON_5CAAFD1866F701400
+media_player.plex_web_chrome:
+  platform: plex
+  unique_id: 5v2jwtcajmkuuk168c08gr40
+media_player.apple_tv_2:
+  platform: plex
+  unique_id: 98FD36DF-784F-4EDE-944A-D7387BDE6603
+sensor.alarm_type:
+  platform: zwave
+  unique_id: 3-72057594094305281
+sensor.alarm_level:
+  platform: zwave
+  unique_id: 3-72057594094305297
+binary_sensor.sensor:
+  platform: zwave
+  unique_id: 3-72057594093240320
+sensor.neo_coolcam_battery_powered_pir_sensor_luminance:
+  platform: zwave
+  unique_id: 3-72057594093256754
+sensor.neo_coolcam_battery_powered_pir_sensor_sourcenodeid:
+  platform: zwave
+  unique_id: 3-72057594094305313
+sensor.neo_coolcam_battery_powered_pir_sensor_burglar:
+  platform: zwave
+  unique_id: 3-72057594094305441
+switch.switch:
+  platform: zwave
+  unique_id: 4-72057594109837312
+sensor.alarm_type_2:
+  platform: zwave
+  unique_id: 4-72057594111082497
+sensor.alarm_level_2:
+  platform: zwave
+  unique_id: 4-72057594111082513
+sensor.unknown:
+  platform: zwave
+  unique_id: 4-72057594110050306
+sensor.neo_coolcam_power_plug_12a_power:
+  platform: zwave
+  unique_id: 4-72057594110050434
+sensor.neo_coolcam_power_plug_12a_voltage:
+  platform: zwave
+  unique_id: 4-72057594110050562
+sensor.neo_coolcam_power_plug_12a_current:
+  platform: zwave
+  unique_id: 4-72057594110050626
+sensor.neo_coolcam_power_plug_12a_exporting:
+  platform: zwave
+  unique_id: 4-72057594110050816
+sensor.neo_coolcam_power_plug_12a_sourcenodeid:
+  platform: zwave
+  unique_id: 4-72057594111082529
+sensor.neo_coolcam_power_plug_12a_power_management:
+  platform: zwave
+  unique_id: 4-72057594111082673
+sensor.neo_coolcam_power_plug_12a_previous_reading:
+  platform: zwave
+  unique_id: 4-72057594110050322
+sensor.neo_coolcam_power_plug_12a_interval:
+  platform: zwave
+  unique_id: 4-72057594110050339
+sensor.neo_coolcam_power_plug_12a_previous_reading_2:
+  platform: zwave
+  unique_id: 4-72057594110050450
+sensor.neo_coolcam_power_plug_12a_interval_2:
+  platform: zwave
+  unique_id: 4-72057594110050467
+sensor.neo_coolcam_power_plug_12a_previous_reading_3:
+  platform: zwave
+  unique_id: 4-72057594110050578
+sensor.neo_coolcam_power_plug_12a_interval_3:
+  platform: zwave
+  unique_id: 4-72057594110050595
+sensor.neo_coolcam_power_plug_12a_previous_reading_4:
+  platform: zwave
+  unique_id: 4-72057594110050642
+sensor.neo_coolcam_power_plug_12a_interval_4:
+  platform: zwave
+  unique_id: 4-72057594110050659
+light.hue_color_lamp_2:
+  platform: hue
+  unique_id: 00:17:88:01:03:54:70:92-0b
+light.hue_color_lamp_1:
+  platform: hue
+  unique_id: 00:17:88:01:03:54:7f:39-0b
+light.hue_color_lamp_3:
+  platform: hue
+  unique_id: 00:17:88:01:03:54:82:f5-0b
+light.color_temperature_light_1:
+  platform: hue
+  unique_id: 00:0b:57:ff:fe:2f:7c:9e-01
+media_player.pult:
+  platform: sonos
+  unique_id: RINCON_5CAAFD246C9401400
+media_player.kontor:
+  platform: sonos
+  unique_id: RINCON_5CAAFD24B3FA01400
+sensor.alarm_type_3:
+  platform: zwave
+  unique_id: 5-72057594127859713
+sensor.alarm_level_3:
+  platform: zwave
+  unique_id: 5-72057594127859729
+binary_sensor.sensor_2:
+  platform: zwave
+  unique_id: 5-72057594126794752
+sensor.neo_coolcam_doorwindow_detector_sourcenodeid:
+  platform: zwave
+  unique_id: 5-72057594127859745
+sensor.neo_coolcam_doorwindow_detector_access_control:
+  platform: zwave
+  unique_id: 5-72057594127859857

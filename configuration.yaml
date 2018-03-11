@@ -1,0 +1,185 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 94
+  unit_system: metric
+  time_zone: !secret timezone
+  customize: !include customize.yaml
+
+# Enables configuration UI
+config:
+
+device_tracker:
+  - platform: icloud
+    username: !secret icloud_user
+    password: !secret icloud_pass
+    account_name: !secret account_name
+
+http:
+  api_password: !secret http_password
+  base_url: !secret base_url
+  #ssl_certificate: /ssl/fullchain.pem
+  #ssl_key: /ssl/privkey.pem
+
+frontend:       # Enables the frontend
+updater:        # Optional, allows Home Assistant developers to focus on popular components.
+discovery:      # Discover some devices automatically
+conversation:   # Allows you to issue voice commands from the frontend in enabled browsers
+logbook:
+map:
+sun:
+
+history: # Enables support for tracking state changes over time
+  use_include_order: True
+  include:
+    entities:
+      - sensor.neo_coolcam_battery_powered_pir_sensor_burglar
+
+#history_graph:
+#  - temperature_graph:
+#      name: Temperatur
+#     entities:
+#        - sensor.temperatur__soverom
+#        - sensor.temperatur__bad
+#      hours_to_show: 24
+#    
+#  - humid_graph:
+#      name: Luftfuktighet
+#      entities:
+#        - sensor.fuktighet__soverom
+#        - sensor.fuktighet__bad
+#      hours_to_show: 24
+
+#Dummy switch / input boolean
+input_boolean:
+  turn_on_power1:
+    name: strombryter
+    initial: off
+    icon: mdi:power
+
+
+
+# Telegram
+telegram_bot:
+  - platform: polling
+    api_key: telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_ids
+notify:
+  - platform: telegram
+    name: telegram
+    chat_id: !secret telegram_chat_ids
+
+
+# Sensordata
+sensor:
+    #Soverom
+  - platform: mqtt
+    state_topic: "gateway-out/2/1/1/0/0"
+    name: "Temperatur - soverom"
+    unit_of_measurement: "C"
+  - platform: mqtt
+    state_topic: "gateway-out/2/0/1/0/1"
+    name: "Fuktighet - soverom"
+    unit_of_measurement: "%"
+   
+   #Kontor
+  - platform: mqtt
+    state_topic: "gateway-out/2/183/1/0/0"
+    name: "Temperatur - kontor"
+    unit_of_measurement: "C"
+  - platform: mqtt
+    state_topic: "gateway-out/2/175/1/0/1"
+    name: "Fuktighet - kontor"
+    unit_of_measurement: '%'
+    
+    #Bevegelsessensor
+  - platform: mqtt
+    state_topic: "gateway-out/3/3/1/0/16"
+    name: "Bevegelsessensor"
+    
+    #Fast.com
+  - platform: fastdotcom
+    minute:
+      - 1 
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+  alexa:
+    filter:
+      include_entities:
+        - light.stue
+        - light.accf2399207e_192168145
+        - light.accf23990d54_192168155
+        - switch.switch
+    entity_config:
+      light.stue:
+        name: Ceiling light
+        description: Ceiling light in the living room
+      light.accf2399207e_192168145:
+        name: Bedroom light
+        description: Bedroom light
+      light.accf23990d54_192168155:
+        name: TV light
+        description: Light behind TV
+      switch.switch:
+        name: Sofa light
+        description: Light behind sofa
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+  
+#MQTT
+mqtt:
+  broker: 192.168.1.50
+  
+# Z-Wave
+zwave:
+  usb_path: /dev/ttyACM0
+  
+ #WIFI LED
+light:
+  - platform: flux_led
+    automatic_add: True
+   
+#Xiaomi Vacuum
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.64
+    token: !secret xiaomi_token
+
+#Kamera
+camera:
+  - platform: mjpeg
+    name: Kamera
+    mjpeg_url: !secret cam1_id
+    username: admin
+    password: !secret camera_pass
+    
+    
+#TV
+media_player:
+  - platform: webostv
+    host: 192.168.1.48
+    name: TV
+    timeout: 5
+    filename: webostv.config
+    turn_on_action:
+      service: persistent_notification.create
+      data:
+        message: "Turn on action"
+
+#Database
+recorder:
+    purge_keep_days: 10
+
+#Homekit
+homekit:
+  pincode: !secret homekit_pincode

@@ -1,0 +1,69 @@
+- id: turn_on_lights
+  alias: Lights on when home
+  trigger:
+  - entity_id: sensor.neo_coolcam_battery_powered_pir_sensor_burglar
+    from: '0'
+    platform: state
+    to: '8'
+  action:
+  - data:
+      brightness: 255
+      entity_id: group.lights
+    service: homeassistant.turn_on
+  condition:
+  - after: '12:00'
+    before: '21:00'
+    condition: time
+- id: smoke_sensor_open
+  alias: Smoke Sensor Open
+  trigger:
+    platform: state
+    entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_burglar
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_burglar
+      state: '3'
+    - condition: state
+      entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_burglar
+      state: '8'
+  action:
+  - service: notify.telegram
+    data:
+      title: 'Roykvarsler: '
+      message: Smoke Sensor Opened!!
+- id: smoke_detecterd
+  alias: Smoke Sensor SMOKE
+  trigger:
+    platform: state
+    entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke_2
+  condition:
+  - condition: state
+    entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke_2
+    state: '0'
+  action:
+  - service: notify.telegram
+    data:
+      title: 'Roykvarsler:'
+      
+- action:
+  - data:
+      brightness: 10
+      entity_id: light.color_temperature_light_1
+    service: light.turn_on
+  - delay: 00:07:00
+  - data:
+      entity_id: light.color_temperature_light_1
+    service: light.turn_off
+  alias: Lights on at night
+  condition:
+  - after: '23:00'
+    before: 08:00
+    condition: time
+  id: '1519336771597'
+  trigger:
+  - entity_id: sensor.neo_coolcam_battery_powered_pir_sensor_burglar
+    from: '0'
+    platform: state
+    to: '8'
