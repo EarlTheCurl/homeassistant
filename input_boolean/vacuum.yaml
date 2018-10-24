@@ -1,0 +1,4 @@
+vacuum_every_weekday:
+  name: Støvsug i ukedagene
+  initial: on
+  icon: mdi:vacuum 

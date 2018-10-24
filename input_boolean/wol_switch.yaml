@@ -1,0 +1,4 @@
+turn_on_power1:
+    name: strombryter
+    initial: off
+    icon: mdi:power

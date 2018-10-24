@@ -1,0 +1,4 @@
+  - platform: haveibeenpwned
+    email: 
+    - !secret email1
+    - !secret email2

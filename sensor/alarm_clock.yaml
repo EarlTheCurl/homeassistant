@@ -1,0 +1,11 @@
+  - platform: template
+    sensors:
+      alarm_clock_time:
+        friendly_name: 'Tidspunkt'
+        icon_template: 'mdi:alarm'
+        value_template: '{{ "%0.02d:%0.02d" | format(states.input_number.alarm_clock_hour.state | int, states.input_number.alarm_clock_minute.state | int ) }}'
+      
+      alarm_clock_fade_in_minutes:
+        friendly_name: 'Myk oppvåkning'
+        icon_template: 'mdi:gradient'
+        value_template: '{{ states.input_number.alarm_clock_fade_in_minutes.state | int }}'

@@ -1,0 +1,4 @@
+sonos_join_speakers:
+  name: Grupper høytalere
+  initial: off
+  icon: mdi:speaker-wireless

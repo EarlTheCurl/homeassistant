@@ -1,0 +1,4 @@
+good_night_switch:
+  name: God natt!
+  icon: mdi:weather-night
+  initial: off

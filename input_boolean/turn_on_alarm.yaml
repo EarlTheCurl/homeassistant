@@ -1,0 +1,4 @@
+  arm_house:
+    name: Skru på alarm
+    initial: off
+    icon: mdi:account-off

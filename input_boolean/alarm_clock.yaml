@@ -1,0 +1,10 @@
+  #Vekkerklokke
+  alarm_clock_status:
+    name: Slå på
+    icon: mdi:alarm-check
+    initial: off
+    
+  alarm_clock_radio_status:
+    name: Slå på
+    icon: mdi:alarm-check
+    initial: off

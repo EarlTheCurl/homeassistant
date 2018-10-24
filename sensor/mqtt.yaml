@@ -1,0 +1,23 @@
+  - platform: mqtt
+    state_topic: "gateway-out/2/1/1/0/0"
+    name: "Temperatur - soverom"
+    unit_of_measurement: "C"
+  - platform: mqtt
+    state_topic: "gateway-out/2/0/1/0/1"
+    name: "Fuktighet - soverom"
+    unit_of_measurement: "%"
+   
+   #Kontor
+  - platform: mqtt
+    state_topic: "gateway-out/2/183/1/0/0"
+    name: "Temperatur - kontor"
+    unit_of_measurement: "C"
+  - platform: mqtt
+    state_topic: "gateway-out/2/175/1/0/1"
+    name: "Fuktighet - kontor"
+    unit_of_measurement: '%'
+    
+    #Bevegelsessensor
+  - platform: mqtt
+    state_topic: "gateway-out/3/3/1/0/16"
+    name: "Bevegelsessensor"
