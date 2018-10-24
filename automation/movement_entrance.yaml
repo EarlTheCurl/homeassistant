@@ -1,0 +1,20 @@
+- id: notify_when_motion_entrance
+  alias: Bevegelse detektert i gangen
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sensor
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        state: 'docked'
+      - condition: state
+        entity_id: input_boolean.arm_house
+        state: 'on'
+
+  action:
+    service: notify.telegram
+    data:
+      message: 'Bevegelse detektert i gangen'

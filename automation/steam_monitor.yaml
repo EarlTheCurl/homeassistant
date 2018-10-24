@@ -1,0 +1,55 @@
+### Hans Petter logger paa steam ###
+- id: hans_p_online
+  alias: Hans Petter er online
+  initial_state: off
+  trigger:
+    - platform: state
+      entity_id: sensor.steam_76561198005346553
+      to: 'online'
+  action:
+    service: notify.telegram
+    data:
+      title: Steam
+      message: 'Hans Petter er online!' 
+
+### Christian er online ###      
+- id: chris_online
+  alias: Christian er online
+  initial_state: off
+  trigger:
+    - platform: state
+      entity_id: sensor.steam_76561198094340093
+      to: 'online'
+  action:
+    service: notify.telegram
+    data:
+      title: Steam
+      message: 'Christian er online!' 
+      
+### Tormod er online ###
+- id: tormod_er_online
+  alias: Tormod er online
+  initial_state: off
+  trigger:
+    - platform: state
+      entity_id: sensor.steam_76561198209315175
+      to: 'online'
+  action:
+    service: notify.telegram
+    data:
+      title: Steam
+      message: 'Tormod er online!' 
+
+### Torgrim er online ###
+- id: torgrim_er_online
+  alias: Torgrim er online
+  initial_state: off
+  trigger:
+    - platform: state
+      entity_id: sensor.steam_76561198064109272
+      to: 'online'
+  action:
+    service: notify.telegram
+    data:
+      title: Steam
+      message: 'Torgrim er online!' 

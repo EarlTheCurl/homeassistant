@@ -1,0 +1,17 @@
+### Skrur av lys etter 10 min ###
+- id: turn_off_all_lights_10_min
+  alias: Skrur av alle lys etter 10 minutter
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sensor
+      to: 'off'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: binary_sensor.sensor_3
+      to: 'off'
+      for:
+        minutes: 10
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.all_lights

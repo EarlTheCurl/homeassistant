@@ -1,0 +1,37 @@
+- id: vacuum_empty_routine
+  alias: Tøm hver torsdag
+  trigger: 
+    platform: time
+    at: '15:00:00'
+  condition:
+    condition: time
+    weekday:
+      - thu
+  action:
+    service: script.turn_on
+    entity_id: script.vacuum_empty
+
+
+- id: vacuum_weekday_routine
+  alias: Vaccum every weekday
+  trigger:
+    platform: time
+    at: '11:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.vacuum_every_weekday
+        state: 'on'
+      - condition: time
+        weekday:
+         - mon
+         - tue
+         - wed 
+         - thu
+         - fri
+  action:
+    service: vacuum.start
+    entity_id: vacuum.xiaomi_vacuum_cleaner
+
+

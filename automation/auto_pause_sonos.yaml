@@ -1,0 +1,14 @@
+- id: auto_pause_sonos_when_tv_starts
+  alias: Pause Sonos when TV plays media
+  
+  trigger:
+    - platform: state
+      entity_id: media_player.tv
+      to: 'playing'
+
+  action:
+    - service: media_player.media_pause
+      entity_id:
+        - media_player.kitchen
+        - media_player.bedroom
+        - media_player.bathroom

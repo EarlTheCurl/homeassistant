@@ -1,0 +1,75 @@
+- id: sonos_set_alarm
+  alias: Set Sonos Alarm
+  trigger:
+    - platform: state
+      entity_id: input_boolean.alarm_clock_status
+      to: 'on'
+  action:
+    service: media_player.sonos_update_alarm
+    data_template:
+      entity_id: media_player.bedroom
+      alarm_id: 65
+      time: '{{ states.sensor.alarm_clock_time.state }}'
+      enabled: true
+      
+      
+- id: sonos_disable_alarm      
+  alias: Disable Sonos Alarm
+  trigger:
+    - platform: state
+      entity_id: input_boolean.alarm_clock_status
+      to: 'off'
+  action:
+    service: media_player.sonos_update_alarm
+    data_template:
+      entity_id: media_player.bedroom
+      alarm_id: 65
+      enabled: false
+      
+- id: sonos_alarm_fade_lights   
+  alias: Fade in Lights in Bedroom
+  trigger:
+    platform: time
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.alarm_clock_status
+        state: 'on'
+      - condition: template
+        value_template: '{{ (utcnow().strftime("%s") | int + states.sensor.alarm_clock_fade_in_minutes.state | int * 60) | timestamp_custom("%H:%M") == states.sensor.alarm_clock_time.state }}'
+  action:
+    service: script.bedroom_light_fade_in
+
+- id: sonos_weekday_alarm
+  alias: Hverdagsalarm - 06:30
+  trigger:
+    platform: time
+    at: '06:30:00'
+  condition:
+    condition: time
+    weekday:
+     - mon
+     - tue
+     - wed
+     - thu
+     - fri
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.sonos_group_morning
+    - service: homeassistant.turn_on
+      entity_id: script.sonos_start_rr
+    - delay: '01:00:00'
+    - service: automation.trigger
+      entity_id: automation.good_night 
+
+- id: sonos_group_speakers
+  alias: Grupper høyttalere
+  trigger:
+    - platform: state
+      entity_id: input_boolean.sonos_join_speakers
+      to: 'on'
+  action:
+    service: script.turn_on
+    entity_id: script.sonos_group_all

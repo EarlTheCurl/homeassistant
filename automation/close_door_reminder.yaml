@@ -1,0 +1,13 @@
+- id: door_open_more_than_5_sec
+  alias: Dor er aapen
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sensor_2
+      to: 'on'
+      for:
+        seconds: 5
+  action:
+    service: notify.telegram
+    data:
+      title: 'Oops:'
+      message: 'Lukk ytterdøren!' 

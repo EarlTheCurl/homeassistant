@@ -1,0 +1,19 @@
+- id: night_light
+  alias: Nattlys
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.sensor_3
+      to: 'on'
+  condition:
+    - condition: time
+      after: '01:00:00'
+      before: '09:00:00'
+  action:
+    service: light.turn_on
+    entity_id: light.stue
+    data:
+      brightness: 5
+      kelvin: 400

@@ -1,0 +1,59 @@
+- id: good_night
+  alias: God natt
+  trigger:
+    platform: state
+    entity_id: input_boolean.good_night_switch
+    from: 'off'
+    to: 'on'
+
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.stue
+        - light.gulvlampe
+        - light.accf2399207e_192168145
+        - light.taklys_soverom
+
+    - service: media_player.media_stop
+      entity_id:
+        - media_player.kitchen
+        - media_player.bedroom
+        - media_player.bathroom
+        - media_player.living_room
+
+    - service: vacuum.return_to_base
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.good_night_switch
+
+    - service: media_player.turn_off
+      entity_id: media_player.tv
+
+
+#TTS that door is closed
+- id: good_night_door_check
+  alias: God natt, dør sjekk
+  trigger:
+    platform: state
+    entity_id: input_boolean.good_night_switch
+    from: 'off'
+    to: 'on'
+  action:
+    - service: script.turn_on
+      data_template:
+        entity_id: >-
+          {% if is_state('binary_sensor.sensor_2', 'off') %}
+            script.sonos_say_door_closed
+          {% elif is_state('binary_sensor.sensor_2', 'on') %}
+            script.sonos_say_door_open
+          {% endif %}
+
+
+
+
+
+
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.good_night_switch

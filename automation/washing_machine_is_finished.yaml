@@ -1,0 +1,19 @@
+- id: washing_machine_is_finished
+  alias: Vaskemaskin er ferdig
+  trigger: 
+    - platform: numeric_state
+      entity_id: sensor.neo_coolcam_power_plug_12a_power
+      above: 1
+      below: 5
+      for: 00:05:00
+  action:
+    - service: notify.telegram
+      data:
+        title: Vaskemaskin
+        message: 'Vasken er ferdig!' 
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.living_room
+        volume: 0.3
+        delay: 00:00:03
+        message: 'Vaskemaskinen er ferdig!'

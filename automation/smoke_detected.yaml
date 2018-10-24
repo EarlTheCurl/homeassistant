@@ -1,0 +1,11 @@
+- id: smoke_detected
+  alias: Royk detektert
+  trigger: 
+    - platform: state
+      entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke_2
+      to: '1'
+  action:
+    service: notify.telegram
+    data:
+      title: 'ALARM:'
+      message: 'Det er detektert røyk!' 

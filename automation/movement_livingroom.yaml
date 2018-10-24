@@ -1,0 +1,19 @@
+- id: notify_when_motion_livingroom
+  alias: Bevegelse detektert i stuen
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sensor_3
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        state: 'docked'
+      - condition: state
+        entity_id: input_boolean.arm_house
+        state: 'on'
+  action:
+    service: notify.telegram
+    data:
+      message: 'Bevegelse detektert i stuen'
