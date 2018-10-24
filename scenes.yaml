@@ -1,0 +1,10 @@
+
+
+- name: Film
+  entities:
+    media_player.apple_tv: on
+    light.stue:
+      state: on
+      brightness: 10
+    media_player.tv: on
+    automation.skrur_av_alle_lys_etter_10_minutter: off
