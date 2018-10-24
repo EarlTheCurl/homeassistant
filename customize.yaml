@@ -1,56 +1,120 @@
-light.accf23990d54_192168155:
-  friendly_name: Stue - bak TV
 sensor.fibaro_system_fgsd002_smoke_sensor_temperature:
   friendly_name: Temperatur
-light.accf2399207e_192168145:
-  friendly_name: Soverom - under seng
+  icon: mdi:thermometer
+
 vacuum.xiaomi_vacuum_cleaner:
-  friendly_name: Hushjelpen
+  friendly_name: Tuva
+
 sensor.fuktighet_bad:
   friendly_name: Fuktighet
+  icon: mdi:water
+
 sensor.fuktighet_soverom:
   friendly_name: Fuktighet
+  icon: mdi:water
+
 sensor.fibaro_system_fgsd002_smoke_sensor_temperatur:
   friendly_name: Temperatur
+  icon: mdi:thermometer
+
 sensor.temperatur_bad:
   friendly_name: Temperatur
+  icon: mdi:thermometer
+
 sensor.temperatur_soverom:
   friendly_name: Temperatur
+  icon: mdi:thermometer
+
 sensor.fuktighet:
   friendly_name: Fuktighet
+  icon: mdi:water
+
 sensor.temperatur:
   friendly_name: Temperatur
+  icon: mdi:thermometer
+
 device_tracker.erlendsiniphone:
   friendly_name: iPhone
-switch.switch:
-  friendly_name: Stue - ved sofa
-  icon: mdi:lightbulb
+
 sensor.neo_coolcam_power_plug_12a_current:
-  friendly_name: Strom
-  icon: mdi:power
+  friendly_name: Strøm
+  icon: mdi:power-plug
 sensor.neo_coolcam_power_plug_12a_power:
   friendly_name: Watt
-  icon: mdi:power
+  icon: mdi:power-plug
 sensor.neo_coolcam_power_plug_12a_voltage:
   friendly_name: Spenning
-  icon: mdi:power
+  icon: mdi:power-plug
+
 sensor.neo_coolcam_battery_powered_pir_sensor_burglar:
   friendly_name: Bevegelse
   device_class: motion
+
 sensor.neo_coolcam_battery_powered_pir_sensor_luminance:
   friendly_name: Luminans
+
+sensor.neo_coolcam_battery_powered_pir_sensor_luminance_2:
+  friendly_name: Luminans
+
 sensor.fastcom_download:
   friendly_name: Hastighet
-light.color_temperature_light_1:
-  friendly_name: Stue - tak
 
+light.stue:
+  friendly_name: Stuetak
+
+#Email breaches
+sensor.breaches_erlendnummer13com:
+  friendly_name: Nummer 13
+
+sensor.breaches_heimlioutlookcom:
+  friendly_name: Outlook
+
+#Gulvlampe
+light.gulvlampe:
+  friendly_name: Gulvlampe
+  icon: mdi:lamp
+  
+#Lampe under seng
+light.accf2399207e_192168145:
+  friendly_name: Under seng
+  icon: mdi:led-strip
+
+  
 #Magnetisk sensor
 binary_sensor.sensor_2:
-  friendly_name: Utgangsdor
+  friendly_name: Utgangsdør
   device_class: door
   icon: mdi:door
   
-#Bevegelsessensor
+#Bevegelsessensor, gang
 binary_sensor.sensor:
-  friendly_name: Bevegelse
+  friendly_name: Gang
   device_class: motion
+
+#Bevegelsessensor, stue
+binary_sensor.sensor_3:
+  friendly_name: Stue
+  device_class: motion
+  
+#Steam ID
+sensor.steam_76561198005346553:
+  friendly_name: Hans Petter
+  icon: mdi:steam
+sensor.steam_76561198046206879:
+  friendly_name: Erlend
+  icon: mdi:steam
+sensor.steam_76561198094340093:
+  friendly_name: Christian
+  icon: mdi:steam
+sensor.steam_76561198209315175:
+  friendly_name: Tormod
+  icon: mdi:steam
+sensor.steam_76561198064109272:
+  friendly_name: Torgrim
+  icon: mdi:steam
+
+#Scripts
+script.vacuum_kitchen:
+  icon: mdi:robot-vacuum
+script.vacuum_empty: 
+  icon: mdi:robot-vacuum

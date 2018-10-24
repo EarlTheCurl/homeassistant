@@ -7,28 +7,38 @@ homeassistant:
   time_zone: !secret timezone
   customize: !include customize.yaml
 
-# Enables configuration UI
-config:
 
-device_tracker:
-  - platform: icloud
-    username: !secret icloud_user
-    password: !secret icloud_pass
-    account_name: !secret account_name
+# Stole too much power from devices
+#device_tracker:
+#  - platform: icloud
+#    username: !secret icloud_user
+#    password: !secret icloud_pass
+#    account_name: !secret account_name
+#    max_interval: 20
 
 http:
   api_password: !secret http_password
   base_url: !secret base_url
-  #ssl_certificate: /ssl/fullchain.pem
-  #ssl_key: /ssl/privkey.pem
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
 
 frontend:       # Enables the frontend
 updater:        # Optional, allows Home Assistant developers to focus on popular components.
 discovery:      # Discover some devices automatically
 conversation:   # Allows you to issue voice commands from the frontend in enabled browsers
+config:         # Enables configuration UI
 logbook:
 map:
 sun:
+
+
+group: !include_dir_merge_named group
+scene: !include scenes.yaml
+automation: !include_dir_merge_list automation
+script: !include_dir_merge_named script
+sensor: !include_dir_merge_list sensor
+input_boolean: !include_dir_merge_named input_boolean
+
 
 history: # Enables support for tracking state changes over time
   use_include_order: True
@@ -36,34 +46,38 @@ history: # Enables support for tracking state changes over time
     entities:
       - sensor.neo_coolcam_battery_powered_pir_sensor_burglar
 
-#history_graph:
-#  - temperature_graph:
-#      name: Temperatur
-#     entities:
-#        - sensor.temperatur__soverom
-#        - sensor.temperatur__bad
-#      hours_to_show: 24
-#    
-#  - humid_graph:
-#      name: Luftfuktighet
-#      entities:
-#        - sensor.fuktighet__soverom
-#        - sensor.fuktighet__bad
-#      hours_to_show: 24
+switch:
+  - platform: wake_on_lan
+    mac_address: 4C-CC-6A-4E-70-02
 
-#Dummy switch / input boolean
-input_boolean:
-  turn_on_power1:
-    name: strombryter
-    initial: off
-    icon: mdi:power
-
-
+    
+input_number:
+  alarm_clock_hour:
+    name: Time
+    icon: mdi:timer
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+  alarm_clock_minute:
+    name: Minutt
+    icon: mdi:timer
+    initial: 30
+    min: 0
+    max: 55
+    step: 5
+  alarm_clock_fade_in_minutes:
+    name: Myk oppvåkning
+    icon: mdi:gradient
+    initial: 15
+    min: 0
+    max: 30
+    step: 5   
 
 # Telegram
 telegram_bot:
   - platform: polling
-    api_key: telegram_api_key
+    api_key: !secret telegram_api_key
     allowed_chat_ids:
       - !secret telegram_chat_ids
 notify:
@@ -71,71 +85,80 @@ notify:
     name: telegram
     chat_id: !secret telegram_chat_ids
 
-
-# Sensordata
-sensor:
-    #Soverom
-  - platform: mqtt
-    state_topic: "gateway-out/2/1/1/0/0"
-    name: "Temperatur - soverom"
-    unit_of_measurement: "C"
-  - platform: mqtt
-    state_topic: "gateway-out/2/0/1/0/1"
-    name: "Fuktighet - soverom"
-    unit_of_measurement: "%"
-   
-   #Kontor
-  - platform: mqtt
-    state_topic: "gateway-out/2/183/1/0/0"
-    name: "Temperatur - kontor"
-    unit_of_measurement: "C"
-  - platform: mqtt
-    state_topic: "gateway-out/2/175/1/0/1"
-    name: "Fuktighet - kontor"
-    unit_of_measurement: '%'
-    
-    #Bevegelsessensor
-  - platform: mqtt
-    state_topic: "gateway-out/3/3/1/0/16"
-    name: "Bevegelsessensor"
-    
-    #Fast.com
-  - platform: fastdotcom
-    minute:
-      - 1 
-
 # Text to speech
 tts:
   - platform: google
+    language: 'no'
 
+# Apple TV
+#apple_tv:
+#  host: 192.168.1.112
+#  login_id: 012031023
+#  name: Apple TV
+    
 # Cloud
 cloud:
   alexa:
     filter:
       include_entities:
         - light.stue
+        - light.gulvlampe
         - light.accf2399207e_192168145
-        - light.accf23990d54_192168155
-        - switch.switch
+        - group.lights
+        - scene.film
+        - script.vacuum_kitchen
+        - script.vacuum_empty
+        - script.turn_off_tv
+        - script.sonos_group_all
+        - input_boolean.arm_house
+        - input_boolean.good_night_switch
+
     entity_config:
       light.stue:
         name: Ceiling light
         description: Ceiling light in the living room
-      light.accf2399207e_192168145:
-        name: Bedroom light
-        description: Bedroom light
-      light.accf23990d54_192168155:
-        name: TV light
-        description: Light behind TV
-      switch.switch:
+      light.gulvlampe:
         name: Sofa light
         description: Light behind sofa
-
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-
-  
+      light.accf2399207e_192168145:
+        name: Bedroom light
+        description: LED strip under bed
+      group.lights:
+        name: All lights
+        description: All lights in apartement
+      scene.natt:
+        name: Good night
+        description: Turns off all lights
+      scene.film:
+        name: Movie scene
+        description: Prepares for movie
+      script.vacuum_kitchen:
+        name: Vacuum the kitchen
+        description: Sends the vacuum to the kitchen
+      script.turn_off_tv:
+        name: Turn off the TV
+        description: Turns off TV
+      input_boolean.arm_house:
+        name: Alarm
+        description: Turns on security system
+      script.vacuum_empty:
+        name: Empty the vacuum
+        description: Calls vacuum to kitchen
+      script.sonos_group_all:
+        name: Group all speakers
+        description: Groups Sonos speakers
+#WIFI LED
+light:
+  - platform: flux_led
+    automatic_add: True
+    
+  - platform: group
+    name: Gulvlampe
+    entities:
+      - light.hue_white_lamp_1
+      - light.hue_white_lamp_2
+      - light.hue_white_lamp_3
+        
 #MQTT
 mqtt:
   broker: 192.168.1.50
@@ -144,11 +167,6 @@ mqtt:
 zwave:
   usb_path: /dev/ttyACM0
   
- #WIFI LED
-light:
-  - platform: flux_led
-    automatic_add: True
-   
 #Xiaomi Vacuum
 vacuum:
   - platform: xiaomi_miio
@@ -162,7 +180,18 @@ camera:
     mjpeg_url: !secret cam1_id
     username: admin
     password: !secret camera_pass
-    
+
+
+  - platform: generic
+    name: Vær
+    still_image_url: https://www.yr.no/sted/Norge/Hordaland/Bergen/Bergen/meteogram.svg
+    content_type: 'image/svg+xml'
+
+
+#Hue
+hue:
+  bridges:
+    - host: 192.168.1.38
     
 #TV
 media_player:
@@ -171,10 +200,8 @@ media_player:
     name: TV
     timeout: 5
     filename: webostv.config
-    turn_on_action:
-      service: persistent_notification.create
-      data:
-        message: "Turn on action"
+    sources:
+      - 'Apple TV'
 
 #Database
 recorder:
@@ -183,3 +210,4 @@ recorder:
 #Homekit
 homekit:
   pincode: !secret homekit_pincode
+  
