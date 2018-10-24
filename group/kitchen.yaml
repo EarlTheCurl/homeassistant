@@ -1,0 +1,14 @@
+kitchen_view:
+  icon: mdi:pot-mix
+  view: yes
+  entities:
+    - group.kitchen
+
+
+kitchen:
+  name: Kjokken
+  control: hidden
+  entities:
+    - media_player.kitchen
+    - script.vacuum_kitchen
+    - script.vacuum_empty

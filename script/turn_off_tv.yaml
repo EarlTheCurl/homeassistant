@@ -1,0 +1,6 @@
+turn_off_tv:
+  alias: "Skru av TV"
+  sequence:
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.tv

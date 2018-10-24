@@ -1,0 +1,34 @@
+bedroom_view:
+  icon: mdi:bed-empty
+  view: yes
+  entities:
+    - group.bedroom_light
+    - group.bedroom
+    - group.alarm_clock
+
+bedroom:
+  name: Soverom
+  entities:
+    - sensor.temperatur__soverom
+    - sensor.fuktighet__soverom
+
+
+    - media_player.bedroom
+
+bedroom_light:
+  name: Lys
+  entities:
+    - light.taklys_soverom
+    - light.sengelampe_erlend
+    - light.sengelampe_stina
+    - light.accf2399207e_192168145
+      
+alarm_clock:
+  name: Vekkerklokke
+  entities:
+    - automation.hverdagsalarm__0630
+    - input_boolean.alarm_clock_status
+    - sensor.alarm_clock_time
+    - input_number.alarm_clock_hour
+    - input_number.alarm_clock_minute
+    - input_number.alarm_clock_fade_in_minutes  

@@ -1,0 +1,19 @@
+vacuum_kitchen:
+  alias: "Støvsug kjøkkenet"
+  sequence:
+    - service: vacuum.send_command
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        command: app_zoned_clean
+        params:  [[19500,31800,18400, 33800,2]]
+        
+vacuum_empty:
+  alias: "Tøm støvsuger"
+  sequence:
+    - service: vacuum.send_command
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        command: app_goto_target
+        params: [19200, 32500]
+
+

@@ -1,7 +1,0 @@
-test_telegram:
-  alias: 'test_telegram'
-  sequence:
-    - service: notify.telegram
-      data:
-        title: Test
-        message: 'TEEEEST'

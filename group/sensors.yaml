@@ -1,0 +1,42 @@
+#### GRUPPER ####
+bathroom_washingmachine:
+  name: Vaskemaskin
+  entities:
+   - sensor.neo_coolcam_power_plug_12a_current
+   - sensor.neo_coolcam_power_plug_12a_power
+   - sensor.neo_coolcam_power_plug_12a_voltage
+
+
+motion: 
+  name: Bevegelse
+  entities: 
+      #stue
+    - binary_sensor.sensor_3  
+      #gang
+    - binary_sensor.sensor  
+
+
+temp_graf:
+  name: Temperatur
+  entities:
+    - history_graph.temperature_graph
+
+
+outside:
+  name: Utenfor
+  entities:
+    - sun.sun
+ 
+weather:
+  name: Vær
+  entities:
+    - camera.vr
+
+
+daily_switches:
+  name: Leilighet
+  control: hidden
+  entities:
+    - input_boolean.arm_house
+    - input_boolean.good_night_switch
+    - input_boolean.sonos_join_speakers

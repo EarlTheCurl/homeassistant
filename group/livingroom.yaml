@@ -1,0 +1,36 @@
+livingroom_view:
+  icon: mdi:sofa
+  view: yes
+  entities:
+    - group.livingroom
+    - group.entrance
+    - group.livingroom_media_group
+    - group.livingroom_sensor
+
+
+livingroom:
+  name: Lys
+  control: hidden
+  entities:
+    - light.stue
+    - light.gulvlampe
+
+    #- switch.switch ### Dette er z wave switchen som ble brukt til  sopfalys
+
+livingroom_media_group:
+  name: Media
+  entities:
+    - media_player.tv 
+    - media_player.living_room  
+    
+livingroom_sensor:
+  name: Administrativt
+  entities:
+    - sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
+    - sensor.neo_coolcam_battery_powered_pir_sensor_luminance_2
+
+entrance:
+  name: Gang
+  entities:
+    - sensor.neo_coolcam_battery_powered_pir_sensor_luminance  
+    

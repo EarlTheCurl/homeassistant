@@ -1,0 +1,31 @@
+office_view:
+  icon: mdi:monitor
+  view: yes
+  entities:
+    - group.office
+    - group.steam
+    - group.email_breaches
+    
+office:
+  name: Kontor
+  entities:
+    - media_player.kontor
+    - sensor.temperatur__kontor
+    - sensor.fuktighet__kontor
+    - switch.wake_on_lan
+    
+### STEAM ###
+steam:
+  name: Steam
+  entities:
+    - sensor.steam_76561198005346553
+    - sensor.steam_76561198094340093
+    - sensor.steam_76561198209315175
+    - sensor.steam_76561198064109272
+
+### EMAIL BREACHES ###
+email_breaches:
+  name: Sikkerhetsbrudd
+  entities:
+   - sensor.breaches_erlendnummer13com
+   - sensor.breaches_heimlioutlookcom

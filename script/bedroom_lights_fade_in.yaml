@@ -1,0 +1,12 @@
+bedroom_light_fade_in:
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - light.stue
+          - light.sofa
+        profile: energize
+        transition: '{{ states.sensor.alarm_clock_fade_in_minutes.state | int * 60 }}'
+    - delay: '{{ "00:" + "%0.02d" | format(states.sensor.alarm_clock_fade_in_minutes.state | int) + ":15" }}'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.alarm_clock_status

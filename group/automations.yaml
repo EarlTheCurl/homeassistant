@@ -1,0 +1,19 @@
+auto_steam_group:
+  name: Steam 
+  entities:
+    - automation.hans_petter_er_online
+    - automation.torgrim_er_online
+    - automation.tormod_er_online
+    - automation.christian_er_online
+
+auto_motion_group:
+  name: Bevegelsessensor
+  entities:
+    - automation.bevegelse_detektert_i_gangen
+    - automation.bevegelse_detektert_i_stuen
+
+auto_light_group:
+  name: Lys
+  entities:
+    - automation.skrur_av_alle_lys_etter_10_minutter
+    - automation.nattlys

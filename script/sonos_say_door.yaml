@@ -1,0 +1,19 @@
+sonos_say_door_closed:
+  alias: Varsler dør lukket
+  sequence:
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.bedroom
+        volume: 0.1
+        delay: 00:00:01
+        message: 'Døren er lukket og låst. God natt!'
+
+sonos_say_door_open:
+  alias: Varsler dør åpen
+  sequence:
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.bedroom
+        volume: 0.1
+        delay: 00:00:01
+        message: 'Døren er åpen, husk å låse den.'

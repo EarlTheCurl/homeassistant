@@ -1,0 +1,55 @@
+default_view:
+  icon: mdi:home
+  view: yes
+  entities:
+    - group.light_group
+    - group.motion
+    - device_tracker.erlendsiniphone
+    - group.daily_switches
+    - group.vacuum_group
+    - group.weather
+
+
+admin_view:
+  icon: mdi:ghost
+  view: yes
+  entities:
+    - group.admin
+    - group.vacuum
+    - group.bathroom_washingmachine
+
+admin:
+  name: Administrativt
+  entities:
+   - binary_sensor.sensor_2
+   #- camera.kamera
+
+   - sensor.fastcom_download
+   
+
+
+scenes_automations_view:
+  icon: mdi:home-automation
+  view: yes
+  entities:
+    - group.auto_steam_group
+    - group.auto_motion_group
+    - group.auto_light_group
+    - group.scenes_group
+ 
+scenes_group:
+  name: Scener
+  entities:
+   - scene.film
+
+
+vacuum_group:
+  name: Støvsuger
+  control: hidden
+  entities:
+    - vacuum.xiaomi_vacuum_cleaner
+    - script.vacuum_kitchen
+    - script.vacuum_empty
+    - input_boolean.vacuum_every_weekday
+
+    

@@ -1,0 +1,8 @@
+light_group:
+  name: Lys
+  control: hidden
+  entities:
+    - light.stue
+    - light.gulvlampe
+    - light.taklys_soverom
+    - light.accf2399207e_192168145
