@@ -22,6 +22,7 @@ steam:
     - sensor.steam_76561198094340093
     - sensor.steam_76561198209315175
     - sensor.steam_76561198064109272
+    - sensor.steam_76561197995473618
 
 ### EMAIL BREACHES ###
 email_breaches:

@@ -6,3 +6,4 @@
       - !secret steam_account_id_c
       - !secret steam_account_id_h
       - !secret steam_account_id_t
+      - !secret steam_account_id_s

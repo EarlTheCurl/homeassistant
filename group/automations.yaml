@@ -5,6 +5,7 @@ auto_steam_group:
     - automation.torgrim_er_online
     - automation.tormod_er_online
     - automation.christian_er_online
+    - automation.simon_er_online
 
 auto_motion_group:
   name: Bevegelsessensor

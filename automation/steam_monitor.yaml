@@ -40,6 +40,7 @@
       title: Steam
       message: 'Tormod er online!' 
 
+
 ### Torgrim er online ###
 - id: torgrim_er_online
   alias: Torgrim er online
@@ -53,3 +54,17 @@
     data:
       title: Steam
       message: 'Torgrim er online!' 
+
+### Simon er online ###
+- id: simon_er_online
+  alias: Simon er online
+  initial_state: off
+  trigger:
+    - platform: state
+      entity_id: sensor.steam_76561197995473618
+      to: 'online'
+  action:
+    service: notify.telegram
+    data:
+      title: Steam
+      message: 'Simon er online!' 
