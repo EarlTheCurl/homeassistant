@@ -4,5 +4,6 @@ light_group:
   entities:
     - light.stue
     - light.gulvlampe
+    - light.gang
     - light.taklys_soverom
     - light.accf2399207e_192168145
