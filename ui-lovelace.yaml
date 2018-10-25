@@ -18,13 +18,41 @@ views:
     id: example
     background: radial-gradient(crimson, skyblue)
     theme: dark-mode
+
     cards:
-      - type: entities
+      - type: glance
+        column_width: calc(100% / 4)
+        show_state: false
         title: Lys
         entities:
-          - light.stue
-          - light.gulvlampe
-          - light.taklys_soverom
+          - entity: light.stue
+            tap_action: toggle
+          - entity: light.gulvlampe
+            tap_action: toggle
+          - entity: light.taklys_soverom
+            tap_action: toggle
+          - entity: light.gang
+            tap_action: toggle
+
+      - type: glance
+       # column_width: calc()
+        show_state: false
+        #title: Bevegelse
+        entities:
+          - binary_sensor.sensor_3  
+      #gang
+          - binary_sensor.sensor 
+
+      - type: glance
+        column_width: calc(100% / 4)
+        show_state: true
+        title: Støvsuger
+        entities:
+          - vacuum.xiaomi_vacuum_cleaner
+          - script.vacuum_kitchen
+          - script.vacuum_empty
+          - entity: input_boolean.vacuum_every_weekday
+            tap_action: toggle
    
     
 
