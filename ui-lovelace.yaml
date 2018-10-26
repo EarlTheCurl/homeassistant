@@ -33,10 +33,28 @@ views:
           - entity: light.gang
             tap_action: toggle
 
+      - type: horizontal-stack
+        cards:
+          - type: entity-button
+            entity: input_boolean.light_scene_cold_switch
+            tap_action: toggle
+          - type: entity-button
+            entity: input_boolean.light_scene_everyday_switch
+            tap_action: toggle
+          - type: entity-button
+            entity: input_boolean.light_scene_relaxing_switch
+            tap_action: toggle
+          - type: entity-button
+            entity: input_boolean.good_night_switch
+            tap_action: toggle
+            
+            
+
+
+
       - type: glance
-       # column_width: calc()
+        column_width: calc(100% / 2)
         show_state: false
-        #title: Bevegelse
         entities:
           - binary_sensor.sensor_3  
       #gang
