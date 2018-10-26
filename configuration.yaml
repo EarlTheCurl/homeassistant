@@ -6,6 +6,7 @@ homeassistant:
   unit_system: metric
   time_zone: !secret timezone
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 
 # Stole too much power from devices
@@ -23,6 +24,7 @@ http:
   ssl_key: /ssl/privkey.pem
 
 frontend:       # Enables the frontend
+  javascript_version: latest
 updater:        # Optional, allows Home Assistant developers to focus on popular components.
 discovery:      # Discover some devices automatically
 conversation:   # Allows you to issue voice commands from the frontend in enabled browsers
