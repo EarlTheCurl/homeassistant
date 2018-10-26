@@ -5,6 +5,8 @@ resources:
     type: js
   - url: /local/my-webfont.css
     type: css
+  - url: /local/mini-media-player/mini-media-player.js?v=0.8.8
+    type: module
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
@@ -14,10 +16,7 @@ background: center / cover no-repeat url("/background.png") fixed
 excluded_entities:
 views:
   - title: Hjem
-    # Optional unique id for direct access /lovelace/${id}
-    id: example
-    background: radial-gradient(crimson, skyblue)
-    theme: dark-mode
+    theme: midnight
 
     cards:
       - type: glance
@@ -43,20 +42,36 @@ views:
       #gang
           - binary_sensor.sensor 
 
-      - type: glance
-        column_width: calc(100% / 4)
-        show_state: true
-        title: Støvsuger
+      - type: entity-filter
+        title: Musikk
         entities:
-          - vacuum.xiaomi_vacuum_cleaner
-          - script.vacuum_kitchen
-          - script.vacuum_empty
-          - entity: input_boolean.vacuum_every_weekday
-            tap_action: toggle
+          - entity: media_player.kitchen
+            type: "custom:mini-media-player"
+            group: true
+          - entity: media_player.living_room
+            type: "custom:mini-media-player"
+            group: true
+          - entity: media_player.bathroom
+            type: "custom:mini-media-player"
+            group: true
+          - entity: media_player.bedroom
+            type: "custom:mini-media-player"
+            group: true
+        state_filter: 
+          - "playing"
+
+
+
+
+      - type: picture-entity
+        image: /local/images/vacuum.png
+        show_state: true
+        entity: vacuum.xiaomi_vacuum_cleaner
+
    
     
 
-### SECOND VIEW ###
+### LIVING ROOM VIEW ###
   - icon: mdi:sofa
     cards:
       - type: entities
@@ -66,6 +81,56 @@ views:
           - light.stue
           - light.gulvlampe
 
+      - type: custom:mini-media-player
+        entity: media_player.living_room
+        name: Sonos Playbar
+        artwork: cover
+        power_color: true
+        hide_volume: false
+        show_progress: true
+
+### BEDROOM ROOM VIEW ###
+  - icon: mdi:bed-empty
+    cards:
+      - type: entities
+        title: Lys
+        show_header_toggle: false
+        entities:
+          - light.taklys_soverom
+          - light.sengelampe_erlend
+          - light.sengelampe_stina
+          - light.accf2399207e_192168145
+
+      - type: custom:mini-media-player
+        entity: media_player.bedroom
+        name: Sonos One
+        artwork: cover
+        power_color: true
+        hide_volume: false
+        show_progress: true
+
+### KITCHEN VIEW ###
+  - icon: mdi:pot-mix
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.kitchen
+        name: Sonos One
+        artwork: cover
+        power_color: true
+        hide_volume: false
+        show_progress: true
 
 
-#
+### BATHROOM VIEW ###
+  - icon: mdi:shower
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.bathroom
+        name: Sonos One
+        artwork: cover
+        power_color: true
+        hide_volume: false
+        show_progress: true
+
+
+
