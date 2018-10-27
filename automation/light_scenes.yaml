@@ -1,0 +1,78 @@
+- id: everyday
+  alias: Behagelig
+  trigger:
+    platform: state
+    entity_id: input_boolean.light_scene_everyday_switch
+    from: 'off'
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: 
+        - light.stue
+        - light.gulvlampe
+        - light.taklys_soverom
+        - light.gang
+      data:
+        brightness: 255
+        kelvin: 2700
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.light_scene_everyday_switch
+
+
+
+
+- id: relaxing
+  alias: Avslappende
+  trigger:
+    platform: state
+    entity_id: input_boolean.light_scene_relaxing_switch
+    from: 'off'
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: 
+        - light.stue
+      data:
+        brightness: 10
+        kelvin: 2000
+
+    - service: light.turn_on
+      entity_id: 
+        - light.gulvlampe
+      data:
+        brightness: 5
+
+    - service: light.turn_off
+      entity_id:
+        - light.accf2399207e_192168145
+        - light.taklys_soverom
+        - light.gang
+        - light.sengelampe_erlend
+        - light.sengelampe_stina
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.light_scene_relaxing_switch
+
+
+
+- id: cold_light
+  alias: Kaldt lys
+  trigger:
+    platform: state
+    entity_id: input_boolean.light_scene_cold_switch
+    from: 'off'
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: 
+        - light.stue
+        - light.gulvlampe
+        - light.taklys_soverom
+        - light.gang
+      data:
+        brightness: 255
+        kelvin: 4000
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.light_scene_cold_switch
