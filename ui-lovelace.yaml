@@ -7,19 +7,19 @@ resources:
     type: css
   - url: /local/mini-media-player/mini-media-player.js?v=0.8.8
     type: module
-
-# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
-background: center / cover no-repeat url("/background.png") fixed
+  - url: /local/monster-card/monster-card.js?v=0.2.3
+    type: js
 
 
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
-  - title: Hjem
-    theme: midnight
+  - id: 0  # Automatically created id
+    title: Hjem
 
     cards:
-      - type: glance
+      - id: cf9be913cfa0411884158c526242c893  # Automatically created id
+        type: glance
         column_width: calc(100% / 4)
         show_state: false
         title: Lys
@@ -33,7 +33,8 @@ views:
           - entity: light.gang
             tap_action: toggle
 
-      - type: horizontal-stack
+      - id: d0e7698b33b3477c8220a225eff0fcbd  # Automatically created id
+        type: horizontal-stack
         cards:
           - type: entity-button
             entity: input_boolean.light_scene_cold_switch
@@ -47,47 +48,51 @@ views:
           - type: entity-button
             entity: input_boolean.good_night_switch
             tap_action: toggle
-            
-            
 
 
 
-      - type: glance
+
+
+      - id: f7da027311684c629ac9695a92c2ea41  # Automatically created id
+        type: glance
         column_width: calc(100% / 2)
         show_state: false
         entities:
-          - binary_sensor.sensor_3  
+          - binary_sensor.sensor_3
       #gang
-          - binary_sensor.sensor 
+          - binary_sensor.sensor
 
-      - type: entity-filter
+      - id: 69630f61da6e496ca4ffc0958911c751  # Automatically created id
+        type: entity-filter
         title: Musikk
         entities:
           - entity: media_player.kitchen
-            type: "custom:mini-media-player"
+            type: custom:mini-media-player
             group: true
           - entity: media_player.living_room
-            type: "custom:mini-media-player"
+            type: custom:mini-media-player
             group: true
           - entity: media_player.bathroom
-            type: "custom:mini-media-player"
+            type: custom:mini-media-player
             group: true
           - entity: media_player.bedroom
-            type: "custom:mini-media-player"
+            type: custom:mini-media-player
             group: true
-        state_filter: 
-          - "playing"
+        state_filter:
+          - playing
 
 
 
 
-      - type: picture-entity
+      - id: e45f693488c04bcf83bbf2f991f41e4b  # Automatically created id
+        type: picture-entity
         image: /local/images/vacuum.png
         show_state: true
         entity: vacuum.xiaomi_vacuum_cleaner
 
-      - type: history-graph
-        entities: 
+      - id: d818f341d6c24c1891dd05d2056144fb  # Automatically created id
+        type: history-graph
+        entities:
           - entity: sensor.temperatur__kontor
             name: Kontor
           - entity: sensor.temperatur__soverom
@@ -97,25 +102,28 @@ views:
           #  name: Stue
         hours_to_show: 48
         title: Temperatur 48h
-        
 
 
 
 
-   
-    
+
+
+
 
 ### LIVING ROOM VIEW ###
-  - icon: mdi:sofa
+  - id: 1  # Automatically created id
+    icon: mdi:sofa
     cards:
-      - type: entities
+      - id: c3a1d35bb85143369eedf6df62a0c728  # Automatically created id
+        type: entities
         title: Lys
         show_header_toggle: false
         entities:
           - light.stue
           - light.gulvlampe
 
-      - type: custom:mini-media-player
+      - id: ce04d0e082994563bd64c2acfcd46fcf  # Automatically created id
+        type: custom:mini-media-player
         entity: media_player.living_room
         name: Sonos Playbar
         artwork: cover
@@ -124,9 +132,11 @@ views:
         show_progress: true
 
 ### BEDROOM ROOM VIEW ###
-  - icon: mdi:bed-empty
+  - id: 2  # Automatically created id
+    icon: mdi:bed-empty
     cards:
-      - type: entities
+      - id: 20207687509240e18d0ec014e45e1728  # Automatically created id
+        type: entities
         title: Lys
         show_header_toggle: false
         entities:
@@ -135,7 +145,8 @@ views:
           - light.sengelampe_stina
           - light.accf2399207e_192168145
 
-      - type: custom:mini-media-player
+      - id: 3d8c55941e6742a6b2937433ab60d34d  # Automatically created id
+        type: custom:mini-media-player
         entity: media_player.bedroom
         name: Sonos One
         artwork: cover
@@ -144,9 +155,11 @@ views:
         show_progress: true
 
 ### KITCHEN VIEW ###
-  - icon: mdi:pot-mix
+  - id: 3  # Automatically created id
+    icon: mdi:pot-mix
     cards:
-      - type: custom:mini-media-player
+      - id: 4cd5552ea1de4cfd922b724d064a7f02  # Automatically created id
+        type: custom:mini-media-player
         entity: media_player.kitchen
         name: Sonos One
         artwork: cover
@@ -154,11 +167,22 @@ views:
         hide_volume: false
         show_progress: true
 
+      - id: b8d87e646ebd49a38817acd09ec3e844  # Automatically created id
+        type: glance
+        show_state: false
+        entities:
+          - entity: script.vacuum_kitchen
+            tap_action: toggle
+          - entity: script.vacuum_empty
+            tap_action: toggle
+
 
 ### BATHROOM VIEW ###
-  - icon: mdi:shower
+  - id: 4  # Automatically created id
+    icon: mdi:shower
     cards:
-      - type: custom:mini-media-player
+      - id: d5696cd94c0848c08dc906756128707b  # Automatically created id
+        type: custom:mini-media-player
         entity: media_player.bathroom
         name: Sonos One
         artwork: cover
@@ -168,16 +192,21 @@ views:
 
 
 ### AUTOMATIONS VIEW ###
-  - icon: mdi:home-automation
+  - id: 5  # Automatically created id
+    icon: mdi:home-automation
     cards:
-      - type: entities
+      - id: 636df89c227a41d2a0596a0263bfbe91  # Automatically created id
+        type: entities
         title: Lys
         show_header_toggle: false
         entities:
           - automation.skrur_av_alle_lys_etter_10_minutter
           - automation.nattlys
+          - automation.lys_i_gangen
+          #- automation.skru_av_lys_i_gangen
 
-      - type: entities
+      - id: fd7b86b891ee4a07b25adcb84708ec72  # Automatically created id
+        type: entities
         title: Steam
         show_header_toggle: true
         entities:
@@ -186,3 +215,14 @@ views:
           - automation.tormod_er_online
           - automation.christian_er_online
           - automation.simon_er_online
+
+      - id: a44697bc92b24ee89e601ef6d157020c  # Automatically created id
+        type: custom:monster-card
+        title: Ødelagt?
+        filter:
+          exclude:
+            - {domain: group}
+          include:
+            - {state: unknown}
+            - {state: unavailable}
+        show_empty: false
