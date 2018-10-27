@@ -86,6 +86,22 @@ views:
         show_state: true
         entity: vacuum.xiaomi_vacuum_cleaner
 
+      - type: history-graph
+        entities: 
+          - entity: sensor.temperatur__kontor
+            name: Kontor
+          - entity: sensor.temperatur__soverom
+            name: Soverom
+          # Hvorfor legges ikke denne inn i grafen med de andre??? 
+          #- entity: sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
+          #  name: Stue
+        hours_to_show: 48
+        title: Temperatur 48h
+        
+
+
+
+
    
     
 
@@ -151,4 +167,22 @@ views:
         show_progress: true
 
 
+### AUTOMATIONS VIEW ###
+  - icon: mdi:home-automation
+    cards:
+      - type: entities
+        title: Lys
+        show_header_toggle: false
+        entities:
+          - automation.skrur_av_alle_lys_etter_10_minutter
+          - automation.nattlys
 
+      - type: entities
+        title: Steam
+        show_header_toggle: true
+        entities:
+          - automation.hans_petter_er_online
+          - automation.torgrim_er_online
+          - automation.tormod_er_online
+          - automation.christian_er_online
+          - automation.simon_er_online
