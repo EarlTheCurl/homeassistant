@@ -40,7 +40,7 @@ history: # Enables support for tracking state changes over time
   include:
     entities:
       - sensor.neo_coolcam_battery_powered_pir_sensor_burglar
-
+#hei
 switch:
   - platform: wake_on_lan
     mac_address: 4C-CC-6A-4E-70-02
