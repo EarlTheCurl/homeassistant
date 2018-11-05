@@ -13,7 +13,9 @@
       before: '09:00:00'
   action:
     service: light.turn_on
-    entity_id: light.stue
+    entities: 
+      - light.stue
+      - light.gang
     data:
       brightness: 5
       kelvin: 400

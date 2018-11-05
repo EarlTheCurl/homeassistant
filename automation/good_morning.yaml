@@ -22,3 +22,4 @@
     service: homeassistant.turn_on
     entity_id: 
       - light.stue
+      - light.gang
