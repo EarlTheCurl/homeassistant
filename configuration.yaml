@@ -9,20 +9,6 @@ homeassistant:
   packages: !include_dir_named packages
 
 
-# Stole too much power from devices
-#device_tracker:
-#  - platform: icloud
-#    username: !secret icloud_user
-#    password: !secret icloud_pass
-#    account_name: !secret account_name
-#    max_interval: 20
-
-http:
-  api_password: !secret http_password
-  base_url: !secret base_url
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
-
 frontend:       # Enables the frontend
   javascript_version: latest
 updater:        # Optional, allows Home Assistant developers to focus on popular components.
@@ -34,12 +20,19 @@ map:
 sun:
 
 
-group: !include_dir_merge_named group
-scene: !include scenes.yaml
-automation: !include_dir_merge_list automation
-script: !include_dir_merge_named script
-sensor: !include_dir_merge_list sensor
-input_boolean: !include_dir_merge_named input_boolean
+http:
+  api_password: !secret http_password
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Stole too much power from devices
+#device_tracker:
+#  - platform: icloud
+#    username: !secret icloud_user
+#    password: !secret icloud_pass
+#    account_name: !secret account_name
+#    max_interval: 20
 
 
 history: # Enables support for tracking state changes over time
@@ -51,7 +44,6 @@ history: # Enables support for tracking state changes over time
 switch:
   - platform: wake_on_lan
     mac_address: 4C-CC-6A-4E-70-02
-
     
 input_number:
   alarm_clock_hour:
@@ -92,8 +84,6 @@ tts:
   - platform: google
     language: 'no'
 
-
-
 #WIFI LED
 light:
   - platform: flux_led
@@ -128,7 +118,6 @@ camera:
     username: admin
     password: !secret camera_pass
 
-
   - platform: generic
     name: Vær
     still_image_url: https://www.yr.no/sted/Norge/Hordaland/Bergen/Bergen/meteogram.svg
@@ -158,3 +147,11 @@ recorder:
 homekit:
   pincode: !secret homekit_pincode
   
+  
+#Includes
+group: !include_dir_merge_named group
+scene: !include scenes.yaml
+automation: !include_dir_merge_list automation
+script: !include_dir_merge_named script
+sensor: !include_dir_merge_list sensor
+input_boolean: !include_dir_merge_named input_boolean
