@@ -170,6 +170,17 @@ views:
           - light.sengelampe_erlend
           - light.sengelampe_stina
           - light.accf2399207e_192168145
+          
+      - type: entities
+        title: Vekkerklokke
+        show_header_toggle: false
+        entities:
+          - automation.hverdagsalarm__0630
+          - input_boolean.alarm_clock_status
+          - sensor.alarm_clock_time
+          - input_number.alarm_clock_hour
+          - input_number.alarm_clock_minute
+          - input_number.alarm_clock_fade_in_minutes 
 
       - id: 3d8c55941e6742a6b2937433ab60d34d  # Automatically created id
         type: custom:mini-media-player
@@ -179,6 +190,9 @@ views:
         power_color: true
         hide_volume: false
         show_progress: true
+        
+
+                
 
 #############################
 #                           #
