@@ -131,6 +131,7 @@ views:
         hide_volume: false
         show_progress: true
 
+
 ### BEDROOM ROOM VIEW ###
   - id: 2  # Automatically created id
     icon: mdi:bed-empty
