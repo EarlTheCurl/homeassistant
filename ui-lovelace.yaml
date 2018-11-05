@@ -14,6 +14,16 @@ resources:
 # Exclude entities from "Unused entities" view
 excluded_entities:
 views:
+
+
+#############################
+#                           #
+#                           #
+#        DEFAULT VIEW       #
+#                           #
+#                           #
+#############################
+
   - id: 0  # Automatically created id
     title: Hjem
 
@@ -61,7 +71,8 @@ views:
           - binary_sensor.sensor_3
       #gang
           - binary_sensor.sensor
-
+          
+        # Viser kontrollere kun når det spilles av musikk
       - id: 69630f61da6e496ca4ffc0958911c751  # Automatically created id
         type: entity-filter
         title: Musikk
@@ -109,8 +120,14 @@ views:
 
 
 
+#############################
+#                           #
+#                           #
+#     LIVING ROOM VIEW      #
+#                           #
+#                           #
+#############################
 
-### LIVING ROOM VIEW ###
   - id: 1  # Automatically created id
     icon: mdi:sofa
     cards:
@@ -132,7 +149,15 @@ views:
         show_progress: true
 
 
-### BEDROOM ROOM VIEW ###
+
+#############################
+#                           #
+#                           #
+#       BED ROOM VIEW       #
+#                           #
+#                           #
+#############################
+
   - id: 2  # Automatically created id
     icon: mdi:bed-empty
     cards:
@@ -155,7 +180,14 @@ views:
         hide_volume: false
         show_progress: true
 
-### KITCHEN VIEW ###
+#############################
+#                           #
+#                           #
+#        KITCHEN VIEW       #
+#                           #
+#                           #
+#############################
+
   - id: 3  # Automatically created id
     icon: mdi:pot-mix
     cards:
@@ -178,7 +210,14 @@ views:
             tap_action: toggle
 
 
-### BATHROOM VIEW ###
+#############################
+#                           #
+#                           #
+#      BATHROOM VIEW        #
+#                           #
+#                           #
+#############################
+
   - id: 4  # Automatically created id
     icon: mdi:shower
     cards:
@@ -192,7 +231,14 @@ views:
         show_progress: true
 
 
-### AUTOMATIONS VIEW ###
+#############################
+#                           #
+#                           #
+#     AUTOMATIONS VIEW      #
+#                           #
+#                           #
+#############################
+
   - id: 5  # Automatically created id
     icon: mdi:home-automation
     cards:
@@ -217,13 +263,14 @@ views:
           - automation.christian_er_online
           - automation.simon_er_online
 
-      - id: a44697bc92b24ee89e601ef6d157020c  # Automatically created id
-        type: custom:monster-card
-        title: Ødelagt?
-        filter:
-          exclude:
-            - {domain: group}
-          include:
-            - {state: unknown}
-            - {state: unavailable}
-        show_empty: false
+# Funker ikke, får opp feilmelding. Er komponentene installert korrekt?
+#      - id: a44697bc92b24ee89e601ef6d157020c  # Automatically created id
+#        type: custom:monster-card
+#        title: Ødelagt?
+#        filter:
+#          exclude:
+#            - {domain: group}
+#          include:
+#            - {state: unknown}
+#            - {state: unavailable}
+#        show_empty: false
