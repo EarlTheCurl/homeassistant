@@ -1,0 +1,51 @@
+# Cloud
+#cloud:
+# alexa:
+#   filter:
+#     include_entities:
+#       - light.stue
+#       - light.gulvlampe
+#       - light.accf2399207e_192168145
+#       - group.lights
+#       - scene.film
+#       - script.vacuum_kitchen
+#       - script.vacuum_empty
+#       - script.turn_off_tv
+#       - script.sonos_group_all
+#       - input_boolean.arm_house
+#       - input_boolean.good_night_switch
+
+#    entity_config:
+#      light.stue:
+#        name: Ceiling light
+#        description: Ceiling light in the living room
+#      light.gulvlampe:
+#        name: Sofa light
+#        description: Light behind sofa
+#      light.accf2399207e_192168145:
+#        name: Bedroom light
+#        description: LED strip under bed
+#      group.lights:
+#        name: All lights
+#        description: All lights in apartement
+#      scene.natt:
+#        name: Good night
+#        description: Turns off all lights
+#      scene.film:
+#       name: Movie scene
+#       description: Prepares for movie
+#     script.vacuum_kitchen:
+#       name: Vacuum the kitchen
+#       description: Sends the vacuum to the kitchen
+#     script.turn_off_tv:
+#        name: Turn off the TV
+#        description: Turns off TV
+#      input_boolean.arm_house:
+#        name: Alarm
+#        description: Turns on security system
+#      script.vacuum_empty:
+#        name: Empty the vacuum
+#        description: Calls vacuum to kitchen
+#      script.sonos_group_all:
+#        name: Group all speakers
+#       description: Groups Sonos speakers
