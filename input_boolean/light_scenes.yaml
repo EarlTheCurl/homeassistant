@@ -1,0 +1,14 @@
+light_scene_everyday_switch:
+  name: Behagelig
+  icon: mdi:lightbulb-on
+  initial: off
+
+light_scene_relaxing_switch:
+  name: Film
+  icon: mdi:movie-roll
+  initial: off
+
+light_scene_cold_switch:
+  name: Kaldt
+  icon: mdi:lightbulb-outline
+  initial: off

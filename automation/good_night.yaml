@@ -13,6 +13,7 @@
         - light.gulvlampe
         - light.accf2399207e_192168145
         - light.taklys_soverom
+        - light.gang
 
     - service: media_player.media_stop
       entity_id:
