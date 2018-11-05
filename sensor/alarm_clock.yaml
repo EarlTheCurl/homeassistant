@@ -9,3 +9,4 @@
         friendly_name: 'Myk oppvåkning'
         icon_template: 'mdi:gradient'
         value_template: '{{ states.input_number.alarm_clock_fade_in_minutes.state | int }}'
+        
