@@ -21,10 +21,10 @@ sun:
 
 
 http:
-  api_password: !secret http_password
-  base_url: !secret base_url
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+#  api_password: !secret http_password
+#  base_url: !secret base_url
+#  ssl_certificate: /ssl/fullchain.pem
+#  ssl_key: /ssl/privkey.pem
 
 # Stole too much power from devices
 #device_tracker:
@@ -34,6 +34,15 @@ http:
 #    account_name: !secret account_name
 #    max_interval: 20
 
+influxdb:
+  host: 127.0.0.1
+  port: 8086
+  database: homeassistant
+  default_measurement: state
+  exclude:
+    domains:
+      - group
+    entities:
 
 history: # Enables support for tracking state changes over time
   use_include_order: True
