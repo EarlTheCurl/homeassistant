@@ -106,6 +106,8 @@ This could take some time as there is quite a lot of data to be downloaded.
 
 
 ## Configuring the containers
+
+
 ### InfluxDB
 For Home Assistant to be able to use InfluxDB, we need to preconfigure a couple of things. 
 
@@ -149,8 +151,11 @@ influxdb:
 I recommend to password protect your database! I might add a howto, but not now. Google it!
 
 Useful links:
+
 InfluxDB Docker: https://hub.docker.com/_/influxdb/
+
 InfluxData: https://docs.influxdata.com/influxdb/v1.7/introduction/installation/
+
 
 ### Mosquitto
 Add the following lines to 
@@ -167,8 +172,11 @@ port 1883
 ```
 
 Useful links:
+
 Mosquitto config: https://mosquitto.org/man/mosquitto-conf-5.html
+
 Mosquitto Docker: https://hub.docker.com/_/eclipse-mosquitto/
+
 
 ### Home Assistant
 Not sure if there is much to be explained here.
@@ -237,8 +245,12 @@ $ docker restart node-red
 Connect Node-RED to Home Assitant: //Under construction
 
 
+
+
 ### Organizr
 Under constructiom
+
+
 
 ### Portainer
 Start container using
@@ -247,6 +259,8 @@ $ docker-compose up -d portainer
 ```
 
 Should now be accessible from http://YOUR.SERVER.IP.ADDRESS:9000
+
+
 
 
 ## Trobuleshooting
