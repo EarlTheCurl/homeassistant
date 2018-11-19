@@ -21,10 +21,7 @@ sun:
 
 
 http:
-#  api_password: !secret http_password
-#  base_url: !secret base_url
-#  ssl_certificate: /ssl/fullchain.pem
-#  ssl_key: /ssl/privkey.pem
+
 
 # Stole too much power from devices
 #device_tracker:
@@ -37,19 +34,25 @@ http:
 influxdb:
   host: 127.0.0.1
   port: 8086
-  database: homeassistant
+  username: admin
+  password: !secret influxdb_password
+  database: home_assistant
   default_measurement: state
+  include:
+    entities:
+      - sensor.fastcom_download
+      - sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
+      - sensor.neo_coolcam_power_plug_12a_power
   exclude:
     domains:
       - group
-    entities:
+
 
 history: # Enables support for tracking state changes over time
   use_include_order: True
   include:
     entities:
       - sensor.neo_coolcam_battery_powered_pir_sensor_burglar
-#hei
 switch:
   - platform: wake_on_lan
     mac_address: 4C-CC-6A-4E-70-02

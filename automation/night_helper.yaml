@@ -1,3 +1,5 @@
+
+
 - id: night_light
   alias: Nattlys
   trigger:
@@ -12,13 +14,14 @@
       after: '01:00:00'
       before: '09:00:00'
   action:
-    service: light.turn_on
-    entities: 
-      - light.stue
-      - light.gang
-    data:
-      brightness: 5
-      kelvin: 400
+    - service: light.turn_on
+      entity_id: 
+        - light.stue
+        - light.gang
+      data:
+        brightness: 5
+        kelvin: 400
+
 
 
 - id: entrance_light_on
