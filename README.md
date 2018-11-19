@@ -71,3 +71,62 @@ $ sudo pip install docker-compose
 
 Docker Compose makes it so much easier to handle several containers that are dependent on each other, You have one file that handles configuration of all your containers.
 
+
+
+### Making those containers
+
+Start by creating relevant directories
+
+```$ sudo mkdir /opt
+$ sudo chown username:usergroup /opt
+$ cd /opt
+$ mkdir homeassistant
+$ mkdir grafana
+$ mkdir influxdb
+$ mkdir mosquitto
+$ mkdir node-red
+$ mkdir organizr
+$ mkdir portainer
+```
+
+Next up is where the magic happens.
+
+Copy docker-compose.yaml into /opt/
+
+Make adjustments where needed. Most of it should be self explanatory, or do an online search. Notice that Im still using version 2.1, when 3.x is out. Had som problems with dependencies on v3, but feel free to tell me why I should switch. Right now everything is working as intended.
+
+
+```$ cd /opt
+$ docker-compose pull
+```
+
+This could take some time as there is quite a lot of data to be downloaded.
+
+
+## Configuring the containers
+
+### InfluxDB
+For Home Assistant to be able to use InfluxDB, we need to preconfigure a couple of things. 
+
+
+First we need to generate the default configuration file.
+```$ docker run --rm influxdb influxdb config > /opt/influxdb/influxdb
+```
+
+ 
+
+
+### Home Assistant
+
+### Mosquitto
+Under construction
+
+### Node-RED
+
+### Organizr
+
+### Portainer
+
+
+
+
