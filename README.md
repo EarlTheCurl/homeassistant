@@ -68,7 +68,7 @@ $ sudo pip install docker-compose
 
 Docker Compose makes it so much easier to handle several containers that are dependent on each other, You have one file that handles configuration of all your containers.
 
-While in the same directory as docker-compose.yaml (will explain later) you can start containers using just
+While in the same directory as `docker-compose.yaml` (will explain later) you can start containers using just
 ```
 $ docker-compose up -d homeassistant
 ```
@@ -94,7 +94,7 @@ Change username and group to correct values. We want your local user to be owner
 
 Next up is where the magic happens.
 
-Download https://gist.github.com/EarlTheCurl/6ccba652616ec9cac3c2538b838ab06e and copy docker-compose.yaml into /opt/
+Download https://gist.github.com/EarlTheCurl/6ccba652616ec9cac3c2538b838ab06e and copy `docker-compose.yaml` into `/opt/`
 
 Make adjustments where needed. Most of it should be self explanatory, or do an online search. Notice that Im still using version 2.1, when 3.x is out. Had som problems with dependencies on v3, but feel free to tell me why I should switch. Right now everything is working as intended.
 ```
@@ -131,7 +131,7 @@ docker exec -it influxdb influx
 > exit
 ```
 
-Last step would be to connect Home Assistant to InfluxDB. Add the following lines to your configuration.yaml. 
+Last step would be to connect Home Assistant to InfluxDB. Add the following lines to your `configuration.yaml`. 
 
 ```
 influxdb:
@@ -151,15 +151,13 @@ influxdb:
 I recommend to password protect your database! I might add a howto, but not now. Google it!
 
 Useful links:
-
-InfluxDB Docker: https://hub.docker.com/_/influxdb/
-
-InfluxData: https://docs.influxdata.com/influxdb/v1.7/introduction/installation/
+- [InfluxDB Docker](https://hub.docker.com/_/influxdb/)
+- [InfluxData](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/)
 
 
 ### Mosquitto
 Add the following lines to 
-/opt/mosquitto/mosquitto.conf
+`/opt/mosquitto/mosquitto.conf`
 
 ```
 persistence true
@@ -172,10 +170,8 @@ port 1883
 ```
 
 Useful links:
-
-Mosquitto config: https://mosquitto.org/man/mosquitto-conf-5.html
-
-Mosquitto Docker: https://hub.docker.com/_/eclipse-mosquitto/
+- [Mosquitto config](https://mosquitto.org/man/mosquitto-conf-5.html)
+- [Mosquitto Docker](https://hub.docker.com/_/eclipse-mosquitto/)
 
 
 ### Home Assistant
@@ -186,7 +182,7 @@ Use the following command to start this conatiner
 $ docker-compose run -d homeassistant
 ```
 
-Note how its dependent on both Mosquitto and InfluxDB as stated in "docker-compose.yaml"
+Note how its dependent on both Mosquitto and InfluxDB as stated in `docker-compose.yaml`
 
 ```
     depends_on:
@@ -204,7 +200,7 @@ Which means that if either of these containers is not working, HA wont either. Y
 ```
 $ docker-compose up -d node-red
 ```
-Node-RED should be accessible from http://YOUR.SERVER.IP.ADDRESS:1880
+Node-RED should be accessible from `http://YOUR.SERVER.IP.ADDRESS:1880`
 
 Lets secure it.
 
@@ -221,7 +217,7 @@ node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" YOURPAS
 exit
 ```
 
-Edit the following section of /opt/node-red/settings.js with your new hash:
+Edit the following section of  `/opt/node-red/settings.js` with your new hash:
 ```
     // Securing Node-RED
     // -----------------
@@ -258,7 +254,7 @@ Start container using
 $ docker-compose up -d portainer
 ```
 
-Should now be accessible from http://YOUR.SERVER.IP.ADDRESS:9000
+Should now be accessible from `http://YOUR.SERVER.IP.ADDRESS:9000`
 
 
 
@@ -273,7 +269,7 @@ I learned that Ubuntu 18.04 Server does not have universe/multiverse/backports e
 $ nano /etc/apt/sources.list
 ```
 
-Then add "universe" after each entry. This allows you to install packages such as python-pip. It should look like this.
+Then add "universe" after each entry. This allows you to install packages such as `python-pip`. It should look like this.
 ```
 deb http://archive.ubuntu.com/ubuntu bionic main universe
 deb http://archive.ubuntu.com/ubuntu bionic-security main universe 
