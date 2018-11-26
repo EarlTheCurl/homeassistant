@@ -1,0 +1,34 @@
+influxdb:
+  host: 127.0.0.1
+  port: 8086
+  username: admin
+  password: !secret influxdb_password
+  database: home_assistant
+  default_measurement: state
+  include:
+    entities:
+      - sensor.fastcom_download
+      - sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
+      - sensor.neo_coolcam_power_plug_12a_power
+      - light.gang
+      - light.gulvlampe
+      - light.stue
+      - light.taklys_soverom
+
+      - sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
+
+      - sensor.tradfri_remote_control
+      - sensor.tradfri_remote_control_2
+      - sensor.tradfri_wireless_dimmer_2
+      - sensor.tradfri_wireless_dimmer_3
+
+      - sensor.temperatur__soverom
+      - sensor.temperatur__kontor
+
+      - sensor.fuktighet__kontor
+      - sensor.fuktighet__soverom
+
+  exclude:
+    domains:
+      - group
+

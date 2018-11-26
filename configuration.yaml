@@ -14,13 +14,16 @@ frontend:       # Enables the frontend
 updater:        # Optional, allows Home Assistant developers to focus on popular components.
 discovery:      # Discover some devices automatically
 conversation:   # Allows you to issue voice commands from the frontend in enabled browsers
-config:         # Enables configuration UI
 logbook:
 map:
 sun:
-
-
+config:
 http:
+
+panel_iframe:
+  grafana:
+    title: 'Grafana'
+    url: !secret grafana_url
 
 
 # Stole too much power from devices
@@ -31,28 +34,6 @@ http:
 #    account_name: !secret account_name
 #    max_interval: 20
 
-influxdb:
-  host: 127.0.0.1
-  port: 8086
-  username: admin
-  password: !secret influxdb_password
-  database: home_assistant
-  default_measurement: state
-  include:
-    entities:
-      - sensor.fastcom_download
-      - sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
-      - sensor.neo_coolcam_power_plug_12a_power
-  exclude:
-    domains:
-      - group
-
-
-history: # Enables support for tracking state changes over time
-  use_include_order: True
-  include:
-    entities:
-      - sensor.neo_coolcam_battery_powered_pir_sensor_burglar
 switch:
   - platform: wake_on_lan
     mac_address: 4C-CC-6A-4E-70-02
@@ -110,7 +91,7 @@ light:
         
 #MQTT
 mqtt:
-  broker: 192.168.1.50
+  broker: 192.168.1.63
   
 # Z-Wave
 zwave:
