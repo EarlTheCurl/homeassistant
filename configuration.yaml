@@ -19,6 +19,7 @@ map:
 sun:
 config:
 http:
+  login_attempts_threshold: 5
 
 panel_iframe:
   grafana:
@@ -26,40 +27,33 @@ panel_iframe:
     url: !secret grafana_url
 
 
-# Stole too much power from devices
-#device_tracker:
-#  - platform: icloud
-#    username: !secret icloud_user
-#    password: !secret icloud_pass
-#    account_name: !secret account_name
-#    max_interval: 20
+# Stole too much power from devices, trying with custom component
+device_tracker:
+  - platform: icloud2
+    username: !secret icloud_user
+    password: !secret icloud_pass
+    account_name: !secret account_name
+    filter_devices: 'phone'
+
+
+zone:
+  - name: !secret work
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
+    radius: 600
+    icon: mdi:castle
+
+  - name: !secret school
+    icon: mdi:school
+    latitude: !secret school_latitude
+    longitude: !secret school_longitude
+    radius: 300
+
 
 switch:
   - platform: wake_on_lan
     mac_address: 4C-CC-6A-4E-70-02
-    
-input_number:
-  alarm_clock_hour:
-    name: Time
-    icon: mdi:timer
-    initial: 6
-    min: 0
-    max: 23
-    step: 1
-  alarm_clock_minute:
-    name: Minutt
-    icon: mdi:timer
-    initial: 30
-    min: 0
-    max: 55
-    step: 5
-  alarm_clock_fade_in_minutes:
-    name: Myk oppvåkning
-    icon: mdi:gradient
-    initial: 15
-    min: 0
-    max: 30
-    step: 5   
+  
 
 # Telegram
 telegram_bot:

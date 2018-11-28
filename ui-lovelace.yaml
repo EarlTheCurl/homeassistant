@@ -60,18 +60,15 @@ views:
             tap_action: toggle
 
 
-
-
-
       - id: f7da027311684c629ac9695a92c2ea41  # Automatically created id
         type: glance
-        column_width: calc(100% / 2)
+        column_width: calc(100% / 3)
         show_state: false
         entities:
-          - binary_sensor.sensor_3
+          - entity: binary_sensor.sensor_3
       #gang
-          - binary_sensor.sensor
-          
+          - entity: binary_sensor.sensor
+
         # Viser kontrollere kun når det spilles av musikk
       - id: 69630f61da6e496ca4ffc0958911c751  # Automatically created id
         type: entity-filter
@@ -101,21 +98,11 @@ views:
         show_state: true
         entity: vacuum.xiaomi_vacuum_cleaner
 
-      - id: d818f341d6c24c1891dd05d2056144fb  # Automatically created id
-        type: history-graph
+      - type: glance
         entities:
-          - entity: sensor.temperatur__kontor
-            name: Kontor
-          - entity: sensor.temperatur__soverom
-            name: Soverom
-          # Hvorfor legges ikke denne inn i grafen med de andre??? 
-          #- entity: sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
-          #  name: Stue
-        hours_to_show: 48
-        title: Temperatur 48h
-
-
-
+          - entity: device_tracker.erlendsiniphone
+            name: Erlend
+            icon: mdi:human-handsup
 
 
 
@@ -245,6 +232,7 @@ views:
         show_progress: true
 
 
+
 #############################
 #                           #
 #                           #
@@ -276,6 +264,8 @@ views:
           - automation.tormod_er_online
           - automation.christian_er_online
           - automation.simon_er_online
+
+
 
 # Funker ikke, får opp feilmelding. Er komponentene installert korrekt?
 #      - id: a44697bc92b24ee89e601ef6d157020c  # Automatically created id
