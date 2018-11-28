@@ -15,8 +15,6 @@ influxdb:
       - light.stue
       - light.taklys_soverom
 
-      - sensor.fibaro_system_fgsd002_smoke_sensor_temperatur
-
       - sensor.tradfri_remote_control
       - sensor.tradfri_remote_control_2
       - sensor.tradfri_wireless_dimmer_2
@@ -24,10 +22,14 @@ influxdb:
 
       - sensor.temperatur__soverom
       - sensor.temperatur__kontor
-
       - sensor.fuktighet__kontor
       - sensor.fuktighet__soverom
 
+      # 3 = stue, null = gang
+      - binary_sensor.sensor_3
+      - binary_sensor.sensor
+
+      - device_tracker.erlendsiniphone
   exclude:
     domains:
       - group

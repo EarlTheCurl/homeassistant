@@ -3,7 +3,7 @@ sensor.fibaro_system_fgsd002_smoke_sensor_smoke:
   polling_intensity: 0
 sensor.fibaro_system_fgsd002_smoke_sensor_temperatur:
   ignored: false
-  polling_intensity: 0
+  polling_intensity: 2
 sensor.neo_coolcam_battery_powered_pir_sensor_sourcenodeid:
   ignored: false
   polling_intensity: 0

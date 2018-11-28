@@ -282,3 +282,39 @@ Try manually creating an empty config file:
 ``` 
 $ sudo nano /opt/grafana/grafana.ini
 ```
+
+
+### Mosquitto: 0.0.0.0:1883:bind: address already in use
+Im not sure if there is any better ways to do fix this (most likely is), but I just removed the port binding from the docker-compose file.
+
+By that I mean:
+
+```
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    user: "1000:1000"
+    ports:
+      - 1883:*1883*
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/mosquitto:/mosquitto/config:ro
+      - /opt/mosquitto:/mosquitto/data
+    restart: on-failure
+```
+
+Turns into
+
+```
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    user: "1000:1000"
+    ports:
+      - 1883
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/mosquitto:/mosquitto/config:ro
+      - /opt/mosquitto:/mosquitto/data
+    restart: on-failure
+```
