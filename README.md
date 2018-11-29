@@ -42,6 +42,6 @@ Check out how I did it [here](https://github.com/EarlTheCurl/homeassistant/blob/
 
 ## Screenshots
 
-![UI](images/ha1.jpg?raw=true "ha1")
-![UI](images/ha2.jpg?raw=true "ha2")
-![UI](images/ha3.jpg?raw=true "ha3")
+![UI](images/ha1.jpg "ha1")
+![UI](images/ha2.jpg "ha2")
+![UI](images/ha3.jpg "ha3")
