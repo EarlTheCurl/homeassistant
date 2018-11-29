@@ -42,6 +42,6 @@ Check out how I did it [here](https://github.com/EarlTheCurl/homeassistant/blob/
 
 ## Screenshots
 
-![UI](images/ha1.jpg | width=250)
-![UI](images/ha2.jpg | width=250)
-![UI](images/ha3.jpg | width=250)
+![UI](images/ha1.jpg){:height="50%" width="50%"}
+![UI](images/ha2.jpg){:height="50%" width="50%"}
+![UI](images/ha3.jpg){:height="50%" width="50%"}
