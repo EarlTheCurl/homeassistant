@@ -5,8 +5,8 @@ DISCLAIMER: I always recommend to password protect or use other forms of authent
 
 ### Docker
 
-There are many ways you can install docker.
-https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1
+There are many ways you can [install docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1). 
+
 
 I installed using the repository
 
@@ -73,9 +73,10 @@ Change username and group to correct values. We want your local user to be owner
 
 Next up is where the magic happens.
 
-Download [docker-compose.yaml](https://gist.github.com/EarlTheCurl/6ccba652616ec9cac3c2538b838ab06e) and copy it into `/opt/`
+Download my [docker-compose.yaml](https://gist.github.com/EarlTheCurl/6ccba652616ec9cac3c2538b838ab06e) and copy it into `/opt/`
 
-Make adjustments where needed. Most of it should be self explanatory, or do an online search. Notice that Im still using version 2.1, when 3.x is out. Had som problems with dependencies on v3, but feel free to tell me why I should switch. Right now everything is working as intended.
+Just recently updated from v2.1 to v3.7 of Docker Compose. Container may still be dependent on each other, but you're not able to set conditions. Should not matter. I think.
+
 ```
 $ cd /opt
 $ docker-compose pull
@@ -129,6 +130,8 @@ influxdb:
 
 I recommend to password protect your database! I might add a howto, but not now. Google it!
 
+
+
 Useful links:
 - [InfluxDB Docker](https://hub.docker.com/_/influxdb/)
 - [InfluxData](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/)
@@ -165,10 +168,8 @@ Note how its dependent on both Mosquitto and InfluxDB as stated in `docker-compo
 
 ```
     depends_on:
-      influxdb:
-        condition: service_healthy
-      mosquitto:
-        condition: service_started
+      - influxdb
+      - mosquitto
 ```
 
 Which means that if either of these containers is not working, HA wont either. You could comment out these dependencies if you dont need them.
@@ -217,13 +218,24 @@ Restart Node-RED
 $ docker restart node-red
 ```
 
-Connect Node-RED to Home Assitant: //Under construction
 
 
+#### Connection Node-RED to HA
+//Under construction
+
+I assume that you are familiar with Node-RED, so won't cover this in detail. But it goes something like this:
+
+Install `"node-red-contrib-home-assistant"`
+
+Get a Long-Lived Access Token (LLAT) from HA by clicking your profile button in the upper left corner of the HA interface. At the bottom, there is a option to create a LLAT. Create it and copy it.
+
+Back in Node-RED, under the config tab, double click "Home Assistant". Fill in your token and `http://YOUR.SERVER.IP.ADDRESS:9000` into where it should.
+
+Using Node-RED is a book by it self, so won't cover that at all. 
 
 
 ### Organizr
-Under constructiom
+//Under constructiom
 
 
 
@@ -236,7 +248,8 @@ $ docker-compose up -d portainer
 Should now be accessible from `http://YOUR.SERVER.IP.ADDRESS:9000`
 
 
-
+### Watchtower
+//Under construction
 
 ## Trobuleshooting
 Some bumps in the road that I experienced...
@@ -297,3 +310,7 @@ Turns into
       - /opt/mosquitto:/mosquitto/data
     restart: on-failure
 ```
+
+### Can't install palettes to Node-RED
+Run `sudo chmod -R 0777 node-red/` while in `/opt` directory. Changes permissions of that folder and sub-folders. I'm unfamiliar with different permissions, so could be more correct permissions to use than 0777.
+

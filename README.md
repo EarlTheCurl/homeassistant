@@ -2,8 +2,6 @@
 This is the live working copy of my smart home. Im currently using a server running Ubuntu Server 18.04 LTS with Docker. 
 
 
-Will be uploading some picutres soon.
-
 ## Containers
 
 - Home Assistant: duh
@@ -26,13 +24,12 @@ And a couple of more, but those are not relevant to this repo.
 - Aeotec Z-Stick Gen 5 Z-Wave
 - Philips Hue Hub
 - Sonos One, with Alexa support
-
 - HP z420 computer
     - Intel Xeon E5-1620, 4 cores @3.6GHz
     - 16GB DDR3 ECC @ 1600MHz
     - GTX 570
-    - Samsung (?) SSD
-
+    - Samsung (?) 250GB SSD 
+    - Some random 3TB HDD
 - NAS with ∼10TB of usable space
 
 
@@ -41,3 +38,10 @@ And a couple of more, but those are not relevant to this repo.
 ## Installation
 
 Check out how I did it [here](https://github.com/EarlTheCurl/homeassistant/blob/master/INSTALLATION.md), but please note that is not yet complete.
+
+
+## Screenshots
+
+![UI](images/ha1.jpg?raw=true "ha1")
+![UI](images/ha2.jpg?raw=true "ha2")
+![UI](images/ha3.jpg?raw=true "ha3")
