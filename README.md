@@ -42,7 +42,7 @@ Check out how I did it:
 - [Configure containers](docs/2_CONFIGURE_CONTAINERS.md)
 - [Securing connection](docs/3_SECURE_CONNECTION.md)
 - [Backup](docs/4_BACKUP.md)
-- [Troubleshooting](docs/10_TROUBLESHOOTING.md)
+- [Troubleshooting](docs/9_TROUBLESHOOTING.md)
 
 
 
