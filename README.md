@@ -37,11 +37,17 @@ And a couple of more, but those are not relevant to this repo.
 
 ## Installation
 
-Check out how I did it [here](https://github.com/EarlTheCurl/homeassistant/blob/master/INSTALLATION.md), but please note that is not yet complete.
+Check out how I did it:
+- [Install Docker](docs/1_INSTALL_DOCKER.md)
+- [Configure containers](docs/2_CONFIGURE_CONTAINERS.md)
+- [Securing connection](docs/3_SECURE_CONNECTION.md)
+- [Backup](docs/4_BACKUP.md)
+- [Troubleshooting](docs/10_TROUBLESHOOTING.md)
+
 
 
 ## Screenshots
 
-![UI](images/ha1.jpg?raw=true&s=200)
-![UI](images/ha2.jpg?raw=true&s=200)
-![UI](images/ha3.jpg?raw=true&s=200)
+<img src="images/ha1.jpg" width="25%">
+<img src="images/ha2.jpg" width="25%">
+<img src="images/ha3.jpg" width="25%">
