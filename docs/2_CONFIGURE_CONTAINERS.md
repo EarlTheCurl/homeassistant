@@ -198,4 +198,4 @@ Should now be accessible from `http://YOUR.SERVER.IP.ADDRESS:9000`
 
 
 ### Organizr
-See the [next step](docs/3_SECURE_CONNECTION.md)
+See the [next step](3_SECURE_CONNECTION.md)

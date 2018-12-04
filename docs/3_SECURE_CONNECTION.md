@@ -78,7 +78,7 @@ X Y * * * ~/certbot-auto renew >> /opt/logs/certbot-renew.log
 `X`: minute
 `Y`: hour
 
-That will renew your certificates  `X` minutes past `Y` hour every day. Documen
+That will renew your certificates  `X` minutes past `Y` hour every day. Documentation recommends using a random `X`, to distribute the load on renewal servers (I presume). Could probably [randomize that](https://stackoverflow.com/questions/9049460/cron-jobs-and-random-times-within-given-hours), but thats too much of a hassle for me. 
 
 *Note*: You might want to change `~/certbot-auto` to where you have saved it. 
 Easy way to test your cron job is by [running](https://askubuntu.com/questions/230476/how-to-solve-permission-denied-when-using-sudo-with-redirection-in-bash/230482#230482)
