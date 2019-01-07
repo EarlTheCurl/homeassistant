@@ -76,6 +76,7 @@ views:
           - entity: binary_sensor.sensor_3
       #gang
           - entity: binary_sensor.sensor
+          - entity: binary_sensor.sensor_2
 
         # Viser kontrollere kun når det spilles av musikk
       - id: 69630f61da6e496ca4ffc0958911c751  # Automatically created id
@@ -133,6 +134,9 @@ views:
         entities:
           - light.stue
           - light.gulvlampe
+
+      - type: media-control
+        entity: media_player.stua
 
       - id: ce04d0e082994563bd64c2acfcd46fcf  # Automatically created id
         type: custom:mini-media-player
@@ -262,6 +266,12 @@ views:
           - automation.lys_i_gangen
           #- automation.skru_av_lys_i_gangen
 
+      - type: entities
+        title: Diverse
+        show_header_toggle: false
+        entities:
+          - input_boolean.vacuum_every_weekday
+
       - id: fd7b86b891ee4a07b25adcb84708ec72  # Automatically created id
         type: entities
         title: Steam
@@ -272,6 +282,7 @@ views:
           - automation.tormod_er_online
           - automation.christian_er_online
           - automation.simon_er_online
+
 
 
 

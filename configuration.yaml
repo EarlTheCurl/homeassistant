@@ -42,11 +42,13 @@ device_tracker:
     filter_devices: 'phone'
 
 
-#apple_tv:
-#  - name: Stua 
-#    host: !secret apple_tv_ip
-#    login_id: !secret apple_tv_loginID
-#    start_off: false
+apple_tv:
+  - name: Apple TV 
+    host: !secret apple_tv_ip
+    login_id: !secret apple_tv_loginID
+    credentials: !secret apple_tv_credentials
+    start_off: false
+
 
 
 zone:
