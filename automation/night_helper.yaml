@@ -11,7 +11,7 @@
       to: 'on'
   condition:
     - condition: time
-      after: '01:00:00'
+      after: '23:01:00'
       before: '09:00:00'
   action:
     - service: light.turn_on

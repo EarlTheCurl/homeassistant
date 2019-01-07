@@ -29,8 +29,9 @@
       entity_id: input_boolean.good_night_switch
 
     - service: media_player.turn_off
-      entity_id: media_player.tv
-
+      entity_id: 
+        - media_player.tv
+        - media_player.stua
 
 #TTS that door is closed
 - id: good_night_door_check
@@ -49,9 +50,6 @@
           {% elif is_state('binary_sensor.sensor_2', 'on') %}
             script.sonos_say_door_open
           {% endif %}
-
-
-
 
 
 
