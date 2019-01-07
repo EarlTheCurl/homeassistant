@@ -118,3 +118,6 @@ script.vacuum_kitchen:
   icon: mdi:robot-vacuum
 script.vacuum_empty: 
   icon: mdi:robot-vacuum
+
+zone.home:
+  name: Hjemme

@@ -25,11 +25,24 @@ influxdb:
       - sensor.fuktighet__kontor
       - sensor.fuktighet__soverom
 
-      # 3 = stue, null = gang
       - binary_sensor.sensor_3
       - binary_sensor.sensor
 
       - device_tracker.erlendsiniphone
+
+      - sensor.neo_coolcam_battery_powered_pir_sensor_luminance
+      - sensor.neo_coolcam_battery_powered_pir_sensor_luminance_2
+
+      - sensor.electricity_price_hetlevikasen_51
+
+      - sensor.pihole_ads_blocked_today  4143
+      - sensor.pihole_ads_percentage_blocked_today 15.84
+      - sensor.pihole_dns_queries_cached 12037
+      - sensor.pihole_dns_queries_forwarded  9982
+      - sensor.pihole_dns_queries_today  26162
+      - sensor.pihole_dns_unique_clients 17
+      - sensor.pihole_domains_blocked  1598055
+      - sensor.pihole_seen_clients
   exclude:
     domains:
       - group
