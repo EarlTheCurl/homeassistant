@@ -5,7 +5,7 @@ vacuum_kitchen:
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
         command: app_zoned_clean
-        params:  [[19500,31800,18400, 33800,2]]
+        params:  [[19400, 31600, 18400,33800,2]]
         
 vacuum_empty:
   alias: "Tøm støvsuger"

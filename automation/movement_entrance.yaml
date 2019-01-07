@@ -11,8 +11,8 @@
         entity_id: vacuum.xiaomi_vacuum_cleaner
         state: 'docked'
       - condition: state
-        entity_id: input_boolean.arm_house
-        state: 'on'
+        entity_id: device_tracker.erlendsiniphone
+        state: 'not_home'
 
   action:
     service: notify.telegram

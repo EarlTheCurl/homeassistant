@@ -35,29 +35,37 @@ views:
         title: Lys
         entities:
           - entity: light.stue
-            tap_action: toggle
+            tap_action: #toggle
+              action: toggle 
           - entity: light.gulvlampe
-            tap_action: toggle
+            tap_action: 
+              action: toggle
           - entity: light.taklys_soverom
-            tap_action: toggle
+            tap_action:
+              action: toggle
           - entity: light.gang
-            tap_action: toggle
+            tap_action: 
+              action: toggle
 
       - id: d0e7698b33b3477c8220a225eff0fcbd  # Automatically created id
         type: horizontal-stack
         cards:
           - type: entity-button
             entity: input_boolean.light_scene_cold_switch
-            tap_action: toggle
+            tap_action: 
+              action: toggle
           - type: entity-button
             entity: input_boolean.light_scene_everyday_switch
-            tap_action: toggle
+            tap_action: 
+              action: toggle
           - type: entity-button
             entity: input_boolean.light_scene_relaxing_switch
-            tap_action: toggle
+            tap_action: 
+              action: toggle
           - type: entity-button
             entity: input_boolean.good_night_switch
-            tap_action: toggle
+            tap_action: 
+              action: toggle
 
 
       - id: f7da027311684c629ac9695a92c2ea41  # Automatically created id
