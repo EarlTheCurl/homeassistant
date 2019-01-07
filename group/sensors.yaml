@@ -16,12 +16,6 @@ motion:
     - binary_sensor.sensor  
 
 
-temp_graf:
-  name: Temperatur
-  entities:
-    - history_graph.temperature_graph
-
-
 outside:
   name: Utenfor
   entities:
