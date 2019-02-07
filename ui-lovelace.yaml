@@ -5,7 +5,7 @@ resources:
     type: js
   - url: /local/my-webfont.css
     type: css
-  - url: /local/mini-media-player/mini-media-player.js?v=0.9.0
+  - url: /local/mini-media-player/mini-media-player.js?v=0.9.8
     type: module
   - url: /local/monster-card/monster-card.js?v=0.2.3
     type: js
@@ -51,11 +51,11 @@ views:
         type: horizontal-stack
         cards:
           - type: entity-button
-            entity: input_boolean.light_scene_cold_switch
+            entity: input_boolean.light_scene_everyday_switch
             tap_action: 
               action: toggle
           - type: entity-button
-            entity: input_boolean.light_scene_everyday_switch
+            entity: input_boolean.light_scene_cold_switch
             tap_action: 
               action: toggle
           - type: entity-button
@@ -98,9 +98,6 @@ views:
         state_filter:
           - playing
 
-
-
-
       - id: e45f693488c04bcf83bbf2f991f41e4b  # Automatically created id
         type: picture-entity
         image: /local/images/vacuum.png
@@ -113,6 +110,11 @@ views:
             name: Erlend
             icon: mdi:human-handsup
 
+      - type: sensor
+        entity: sensor.electricity_price_hetlevikasen_51
+        name: Strømpris
+        graph: line
+        unit: NOK/kWh
 
 
 
@@ -135,11 +137,10 @@ views:
           - light.stue
           - light.gulvlampe
 
-      - type: media-control
-        entity: media_player.stua
+#      - type: media-control
+#        entity: media_player.stua
 
-      - id: ce04d0e082994563bd64c2acfcd46fcf  # Automatically created id
-        type: custom:mini-media-player
+      - type: custom:mini-media-player
         entity: media_player.living_room
         name: Sonos Playbar
         artwork: cover
@@ -168,13 +169,13 @@ views:
           - light.taklys_soverom
           - light.sengelampe_erlend
           - light.sengelampe_stina
-          - light.accf2399207e_192168145
+          - light.accf2399207e_192_168_1_45
           
       - type: entities
         title: Vekkerklokke
         show_header_toggle: false
         entities:
-          - automation.hverdagsalarm__0630
+          - automation.hverdagsalarm_06_30
           - input_boolean.alarm_clock_status
           - sensor.alarm_clock_time
           - input_number.alarm_clock_hour
@@ -271,17 +272,7 @@ views:
         show_header_toggle: false
         entities:
           - input_boolean.vacuum_every_weekday
-
-      - id: fd7b86b891ee4a07b25adcb84708ec72  # Automatically created id
-        type: entities
-        title: Steam
-        show_header_toggle: true
-        entities:
-          - automation.hans_petter_er_online
-          - automation.torgrim_er_online
-          - automation.tormod_er_online
-          - automation.christian_er_online
-          - automation.simon_er_online
+          - input_boolean.sonos_join_speakers
 
 
 

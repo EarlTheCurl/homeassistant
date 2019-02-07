@@ -75,7 +75,7 @@ light.gulvlampe:
   icon: mdi:lamp
   
 #Lampe under seng
-light.accf2399207e_192168145:
+light.accf2399207e_192_168_1_45:
   friendly_name: Under seng
   icon: mdi:led-strip
 

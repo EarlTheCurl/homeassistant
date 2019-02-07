@@ -7,7 +7,7 @@ cloud:
         - light.gulvlampe
         - light.taklys_soverom
         - light.gang
-        - light.accf2399207e_192168145
+        - light.accf2399207e_192_168_1_45
 
 
         - script.vacuum_kitchen
@@ -28,7 +28,7 @@ cloud:
       light.taklys_soverom:
         name: Bedroom light
         description: Bedroom ceiling light
-      light.accf2399207e_192168145:
+      light.accf2399207e_192_168_1_45:
         name: Bedroom LED light
         description: LED strip under bed
 
@@ -49,3 +49,6 @@ cloud:
       input_boolean.good_night_switch:
         name: Sleep
         description: Turns off everything
+      input_boolean.light_scene_relaxing_switch:
+        name: Movie scene
+        description: Turns on movie scene
