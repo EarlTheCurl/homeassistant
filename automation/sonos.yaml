@@ -29,7 +29,7 @@
 - id: sonos_alarm_fade_lights   
   alias: Fade in Lights in Bedroom
   trigger:
-    platform: time
+    platform: time_pattern
     seconds: 00
   condition:
     condition: and

@@ -1,5 +1,6 @@
 - id: good_night
   alias: God natt
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.good_night_switch
@@ -11,7 +12,7 @@
       entity_id:
         - light.stue
         - light.gulvlampe
-        - light.accf2399207e_192168145
+        - light.accf2399207e_192_168_1_45
         - light.taklys_soverom
         - light.gang
 

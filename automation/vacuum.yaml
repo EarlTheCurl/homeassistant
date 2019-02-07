@@ -21,6 +21,9 @@
     condition: and
     conditions:
       - condition: state
+        entity_id: device_tracker.erlendsiniphone
+        state: 'not_home'
+      - condition: state
         entity_id: input_boolean.vacuum_every_weekday
         state: 'on'
       - condition: time
