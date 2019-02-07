@@ -1,11 +1,3 @@
-auto_steam_group:
-  name: Steam 
-  entities:
-    - automation.hans_petter_er_online
-    - automation.torgrim_er_online
-    - automation.tormod_er_online
-    - automation.christian_er_online
-    - automation.simon_er_online
 
 auto_motion_group:
   name: Bevegelsessensor

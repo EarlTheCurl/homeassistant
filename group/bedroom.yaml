@@ -9,8 +9,8 @@ bedroom_view:
 bedroom:
   name: Soverom
   entities:
-    - sensor.temperatur__soverom
-    - sensor.fuktighet__soverom
+    - sensor.temperatur_soverom
+    - sensor.fuktighet_soverom
 
 
     - media_player.bedroom
@@ -21,12 +21,12 @@ bedroom_light:
     - light.taklys_soverom
     - light.sengelampe_erlend
     - light.sengelampe_stina
-    - light.accf2399207e_192168145
+    - light.accf2399207e_192_168_1_45
       
 alarm_clock:
   name: Vekkerklokke
   entities:
-    - automation.hverdagsalarm__0630
+    - automation.hverdagsalarm_0630
     - input_boolean.alarm_clock_status
     - sensor.alarm_clock_time
     - input_number.alarm_clock_hour

@@ -3,26 +3,16 @@ office_view:
   view: yes
   entities:
     - group.office
-    - group.steam
     - group.email_breaches
     
 office:
   name: Kontor
   entities:
     - media_player.kontor
-    - sensor.temperatur__kontor
-    - sensor.fuktighet__kontor
+    - sensor.temperatur_kontor
+    - sensor.fuktighet_kontor
     - switch.wake_on_lan
     
-### STEAM ###
-steam:
-  name: Steam
-  entities:
-    - sensor.steam_76561198005346553
-    - sensor.steam_76561198094340093
-    - sensor.steam_76561198209315175
-    - sensor.steam_76561198064109272
-    - sensor.steam_76561197995473618
 
 ### EMAIL BREACHES ###
 email_breaches:
