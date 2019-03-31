@@ -1,5 +1,6 @@
 - id: notify_when_motion_livingroom
   alias: Bevegelse detektert i stuen
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.sensor_3

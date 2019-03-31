@@ -1,5 +1,6 @@
 - id: notify_when_motion_entrance
   alias: Bevegelse detektert i gangen
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.sensor
@@ -10,9 +11,9 @@
       - condition: state
         entity_id: vacuum.xiaomi_vacuum_cleaner
         state: 'docked'
-      - condition: state
-        entity_id: device_tracker.erlendsiniphone
-        state: 'not_home'
+#      - condition: state
+#        entity_id: device_tracker.erlendsiniphone
+#        state: 'not_home'
 
   action:
     service: notify.telegram

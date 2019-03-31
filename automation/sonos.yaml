@@ -1,5 +1,6 @@
 - id: sonos_set_alarm
   alias: Set Sonos Alarm
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.alarm_clock_status
@@ -15,6 +16,7 @@
       
 - id: sonos_disable_alarm      
   alias: Disable Sonos Alarm
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.alarm_clock_status
@@ -43,6 +45,7 @@
     service: script.bedroom_light_fade_in
 
 - id: sonos_weekday_alarm
+  initial_state: 'on'
   alias: Hverdagsalarm - 06:30
   trigger:
     platform: time
@@ -66,6 +69,7 @@
 
 - id: sonos_group_speakers
   alias: Grupper høyttalere
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.sonos_join_speakers

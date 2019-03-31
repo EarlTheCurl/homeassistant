@@ -1,5 +1,6 @@
 - id: smoke_detected
   alias: Royk detektert
+  initial_state: 'on'
   trigger: 
     - platform: state
       entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke_2

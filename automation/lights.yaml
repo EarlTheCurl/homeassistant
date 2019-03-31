@@ -2,6 +2,7 @@
 
 - id: night_light
   alias: Nattlys
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.sensor
@@ -13,12 +14,12 @@
     - condition: time
       after: '23:00:10'
       before: '09:00:00'
-    - condition: state
-      entity_id: light.stue
-      state: 'off'
-    - condition: state
-      entity_id: light.gang
-      state: 'off'
+#    - condition: state
+#      entity_id: light.stue
+#      state: 'off'
+#    - condition: state
+#      entity_id: light.gang
+#      state: 'off'
   action:
     - service: light.turn_on
       entity_id: 
@@ -30,6 +31,7 @@
 
 - id: entrance_light_on
   alias: Lys i gangen
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.sensor
@@ -38,12 +40,12 @@
     - condition: time
       after: '09:00:00'
       before: '23:00:00'
-    - condition: state
-      entity_id: light.stue
-      state: 'off'
-    - condition: state
-      entity_id: light.gang
-      state: 'off'
+#    - condition: state
+#      entity_id: light.stue
+#      state: 'off'
+#    - condition: state
+#      entity_id: light.gang
+ #     state: 'off'
   action:
     service: light.turn_on
     entity_id: light.gang
@@ -53,18 +55,13 @@
 
 - id: entrance_light_of
   alias: Skru av lys i gangen 
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.sensor
       to: 'off'
       for:
         minutes: 10
-
-  condition:
-    - condition: time
-      after: '09:00:00'
-      before: '23:00:00'
-
   action:
     service: light.turn_off
     entity_id: light.gang

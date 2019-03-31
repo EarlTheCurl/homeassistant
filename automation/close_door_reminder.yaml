@@ -1,5 +1,6 @@
 - id: door_open_more_than_5_sec
   alias: Dor er aapen
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.sensor_2

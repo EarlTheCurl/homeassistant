@@ -1,5 +1,6 @@
 - id: vacuum_empty_routine
   alias: Tøm hver torsdag
+  initial_state: 'on'
   trigger: 
     platform: time
     at: '15:00:00'
@@ -14,15 +15,16 @@
 
 - id: vacuum_weekday_routine
   alias: Vaccum every weekday
+  initial_state: 'on'
   trigger:
     platform: time
     at: '11:00:00'
   condition:
     condition: and
     conditions:
-      - condition: state
-        entity_id: device_tracker.erlendsiniphone
-        state: 'not_home'
+#      - condition: state
+#        entity_id: device_tracker.erlendsiniphone
+#        state: 'not_home'
       - condition: state
         entity_id: input_boolean.vacuum_every_weekday
         state: 'on'
