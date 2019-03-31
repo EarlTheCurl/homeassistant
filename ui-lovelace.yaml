@@ -5,10 +5,12 @@ resources:
     type: js
   - url: /local/my-webfont.css
     type: css
-  - url: /local/mini-media-player/mini-media-player.js?v=0.9.8
+  - url: /local/mini-media-player/mini-media-player-bundle.js?v=1.0.3
     type: module
   - url: /local/monster-card/monster-card.js?v=0.2.3
     type: js
+  - url: /local/mini-graph-card-bundle.js?v=0.2.1
+    type: module
 
 
 # Exclude entities from "Unused entities" view
@@ -78,25 +80,22 @@ views:
           - entity: binary_sensor.sensor
           - entity: binary_sensor.sensor_2
 
-        # Viser kontrollere kun når det spilles av musikk
-      - id: 69630f61da6e496ca4ffc0958911c751  # Automatically created id
-        type: entity-filter
-        title: Musikk
-        entities:
-          - entity: media_player.kitchen
-            type: custom:mini-media-player
-            group: true
-          - entity: media_player.living_room
-            type: custom:mini-media-player
-            group: true
-          - entity: media_player.bathroom
-            type: custom:mini-media-player
-            group: true
-          - entity: media_player.bedroom
-            type: custom:mini-media-player
-            group: true
-        state_filter:
-          - playing
+      - type: custom:mini-media-player
+        entity: media_player.kitchen
+        group: true
+        hide:
+          power: true
+        sonos:
+          show_group_count: true
+          entities:
+            - entity_id: media_player.living_room
+              name: Stue
+            - entity_id: media_player.bathroom
+              name: Bad
+            - entity_id: media_player.bedroom
+              name: Soverom
+
+
 
       - id: e45f693488c04bcf83bbf2f991f41e4b  # Automatically created id
         type: picture-entity
@@ -104,18 +103,34 @@ views:
         show_state: true
         entity: vacuum.xiaomi_vacuum_cleaner
 
-      - type: glance
-        entities:
-          - entity: device_tracker.erlendsiniphone
-            name: Erlend
-            icon: mdi:human-handsup
-
-      - type: sensor
-        entity: sensor.electricity_price_hetlevikasen_51
-        name: Strømpris
-        graph: line
-        unit: NOK/kWh
-
+#      - type: glance
+#        entities:
+#          - entity: device_tracker.erlendsiniphone
+#           name: Erlend
+#            icon: mdi:human-handsup
+  
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Forbruk
+            entities: !secret tibber_consumption
+            line_color: blue
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            name: I dag
+            entities: sensor.tibber_accumulated_consumption
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
+            icon: mdi:power-plug
+          - type: custom:mini-graph-card
+            name: I dag
+            entities: sensor.tibber_accumulated_cost
+            line_color: var(--accent-color)
+            line_width: 8
+            font_size: 75
+            icon: mdi:currency-usd
 
 
 #############################
@@ -167,7 +182,7 @@ views:
         show_header_toggle: false
         entities:
           - light.taklys_soverom
-          - light.sengelampe_erlend
+          - light.tradfri_bulb_2_2
           - light.sengelampe_stina
           - light.accf2399207e_192_168_1_45
           
@@ -265,6 +280,8 @@ views:
           - automation.skrur_av_alle_lys_etter_10_minutter
           - automation.nattlys
           - automation.lys_i_gangen
+          - automation.dor_er_aapen
+          - automation.bevegelse_detektert_i_gangen
           #- automation.skru_av_lys_i_gangen
 
       - type: entities

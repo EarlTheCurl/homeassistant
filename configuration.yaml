@@ -22,6 +22,11 @@ http:
   login_attempts_threshold: 5
 lovelace:
   mode: yaml
+history:
+  include:
+    entities:
+      - !secret tibber_consumption
+      - !secret tibber_price
 
 panel_iframe:
   grafana_sensor:
@@ -34,12 +39,12 @@ panel_iframe:
     url: !secret grafana_url_pihole
 
 
-device_tracker:
-  - platform: icloud2
-    username: !secret icloud_user
-    password: !secret icloud_pass
-    account_name: !secret account_name
-    filter_devices: 'phone'
+#device_tracker:
+#  - platform: icloud2
+#    username: !secret icloud_user
+#    password: !secret icloud_pass
+#    account_name: !secret account_name
+#    filter_devices: 'phone'
 
 
 #apple_tv:
@@ -124,23 +129,21 @@ camera:
     still_image_url: https://www.yr.no/sted/Norge/Hordaland/Bergen/Bergen/meteogram.svg
     content_type: 'image/svg+xml'
 
+#Speedtest
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  server_id: 2301 
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 #Hue
 hue:
   bridges:
     - host: 192.168.1.38
     
-#TV
-media_player:
-  - platform: webostv
-    host: 192.168.1.48
-    name: TV
-    timeout: 5
-    filename: webostv.config
-    sources:
-      - 'Apple TV'
-  - platform: plex
-
 
 #Database
 recorder:
@@ -153,6 +156,7 @@ homekit:
 #Tibber
 tibber:
   access_token: !secret tibber_token
+
 
 #Includes
 group: !include_dir_merge_named group
