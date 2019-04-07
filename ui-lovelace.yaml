@@ -80,11 +80,21 @@ views:
           - entity: binary_sensor.sensor
           - entity: binary_sensor.sensor_2
 
+
+
+
       - type: custom:mini-media-player
         entity: media_player.kitchen
+        artwork: cover
         group: true
         hide:
           power: true
+          icon: true
+ #       shortcuts:
+ #         buttons:
+ #           - icon: mdi:cat
+ #             type: playlist
+ #             id: spotify:user:spotify:playlist:37i9dQZF1DZ06evO2O09Hg
         sonos:
           show_group_count: true
           entities:
@@ -290,6 +300,7 @@ views:
         entities:
           - input_boolean.vacuum_every_weekday
           - input_boolean.sonos_join_speakers
+          - switch.water_irrigation
 
 
 
