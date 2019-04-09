@@ -1,0 +1,41 @@
+esphome:
+  name: irrigation
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi
+  password: !secret wifi_p
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+
+
+switch:
+  - platform: gpio
+    name: "Vannpumpe"
+    pin: D3
+
+sensor:
+  - platform: adc
+    pin: A0
+    name: "Jordfuktighet"
+    unit_of_measurement: '%'
+    accuracy_decimals: 0
+    icon: "mdi:water-percent"
+    filters:
+      - lambda: |-
+          double value = x * 100.0;
+          value = map(value, 9, 32, 100, 0);
+          return(value);
+
+  - platform: ultrasonic
+    trigger_pin: D6
+    echo_pin: D5
+    name: "Vannivå"

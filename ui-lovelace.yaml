@@ -173,6 +173,14 @@ views:
         hide_volume: false
         show_progress: true
 
+      - type: entities
+        title: Planter
+        show_header_toggle: false
+        entities:
+          - switch.vannpumpe
+          - sensor.moisture
+          - sensor.vanniva
+
 
 
 #############################
@@ -300,7 +308,8 @@ views:
         entities:
           - input_boolean.vacuum_every_weekday
           - input_boolean.sonos_join_speakers
-          - switch.water_irrigation
+
+
 
 
 
