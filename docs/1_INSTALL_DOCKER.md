@@ -1,3 +1,7 @@
+# First words
+Well, I will be trying to explain things as simple as possible and cover a few of the mistakes that I did. 
+At the bottom of this page, there is an overview over the different steps.
+
 
 # Docker
 
@@ -47,3 +51,10 @@ While in the same directory as `docker-compose.yaml` (will explain later) you ca
 ```
 $ docker-compose up -d homeassistant
 ```
+
+
+- [Install Docker](docs/1_INSTALL_DOCKER.md)
+- [Configure containers](docs/2_CONFIGURE_CONTAINERS.md)
+- [Securing connection](docs/3_SECURE_CONNECTION.md)
+- [Backup](docs/4_BACKUP.md)
+- [Troubleshooting](docs/9_TROUBLESHOOTING.md)
